@@ -1,5 +1,5 @@
-# CortexPrime
-Character sheet(s) for Cortex Prime focusing on a Cortex Plus Marvel Heroic-compatible implementation. To see an example of how it all works, check out the Roll20 game at: https://app.roll20.net/join/9344152/nM9tKQ
+# Marvel Heroic Roleplaying
+Character sheet(s) for Marvel Heroic Roleplaying. To see an example of how it all works, check out the Roll20 game at: https://app.roll20.net/join/9344152/nM9tKQ
 
 The dice pool controls are at the top of the character sheets. They are inspired in part by the DiceStream app that was once available in Google Hangouts. 
 Buttons on the sheet add dice to your pool, or you can add them in the roller itself.
