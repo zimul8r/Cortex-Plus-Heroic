@@ -1,0 +1,84 @@
+button[type=roll].sheet-blank-roll-button::before { 
+ content: '';
+ margin: 1px;
+}
+
+button[type=roll].sheet-blank-roll-button { 
+ padding: 0px 8px 0px 0px; 
+ margin: 1px;
+ height: 30px;
+}
+
+input[type=checkbox] { 
+ width: 15px; 
+ height: 15px; 
+ margin: 1px;
+ background-color: green;
+ vertical-align: 0px;
+}
+
+input[type=text].sheet-input-text-wide { 
+ width: 300px; 
+ height: 32px; 
+ margin: 1px;
+ display:inline-block;
+ vertical-align: middle;
+}
+
+select {
+ width: 75px;
+ margin: 1px;
+}
+
+select.sheet-select-wide {
+ width: 100px;
+ margin: 1px;
+}
+
+label {
+ text-align: right;
+ width: 75px;
+ margin: 1px;
+ display:inline-block;
+}
+
+textarea { 
+ height: 34px;
+ width: 100%;
+ margin: 1px;
+ resize: vertical;
+ vertical-align: middle;
+}
+
+hr.myhrline {
+ margin: 1px;
+}
+
+table {
+ margin: 1px;
+}
+
+div {
+ margin: 1px;
+ width: 100%;
+}
+
+input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
+input.sheet-toggle-hide:checked ~ div.sheet-body {
+    display: none;
+    margin: 1px;
+}
+
+/*Configure the tab buttons*/
+.sheet-character,
+.sheet-dice-only, 
+.sheet-npc {
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="dice-only"] ~ div.sheet-dice-only,
+.sheet-tabstoggle[value="npc"] ~ div.sheet-npc {
+	display: block;
+}

@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+<!-- ********************************************************************************************************************* -->
+<!-- Start of Sheet-->
+<!-- Note:  The dice bar can be added to the top of any character sheet to provide the dice pool rolling functionality.-->
+<html>
+    <body>
+        
+        <div>
+            <button type="action" name="act_character" >Heroic Character Sheet</button>
+            <button type="action" name="act_dice-only" >Dice Pool Roller Only</button>
+            <button type="action" name="act_npc" >NPC Sheet</button>
+        </div>
+        <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+
+        <div class='sheet-character'>
+            <h2>Heroic Character Sheet</h2>
+            <span>
+
+                <div class='sheet-dice-bar'>
+                 	<div class="sheet-2colrow">
+                		<div class="sheet-col">	
+                        	<table style="display: inline-block;">
+                        		<tr>
+                        			<td style="text-align:center">
+                        				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="min-width: 60;">
+                        				<button	type="roll" 
+                        					class="blank-roll-button" 
+                        					style="height:20px;"
+                        					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
+                        				    ROLL
+                        				</button>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<input type="number" name="attr_d4" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d6" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d8" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d10" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d12" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<button	type="roll" 
+                        					class="blank-roll-button" 
+                        					style="height:20px;"
+                        					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
+                        				CLEAR
+                        				</button>
+                        			</td>
+                        		</tr>
+                        	</table>
+                	    </div>
+                		<div class="sheet-col">	
+                        	<table>
+                        	    <tr>
+                                    <h3 style="text-align:center">Dice Pool Actions</h3>
+                        	    </tr>
+                        	    <tr>
+                        	        <div style="text-align:center">
+                                        <input type="radio" name="attr_dcharradio" value="4">
+                                        d4&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="6">
+                                        d6&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="8">
+                                        d8&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="10">
+                                        d10&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="12">
+                                        d12
+                                    </div>
+                                </tr>
+                                <tr>
+                        	        <div style="text-align:center">
+                        				<button	type="roll" 
+                        				    title="Double a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
+                        				2x
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Step Up a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
+                        				UP
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Step Down a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
+                        				DN
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 2 dice one step lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
+                        				/2
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 3 dice two steps lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
+                        				/3
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 4 dice three steps lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
+                        				/4
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Combine 2 dice into 1 die one step higher"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
+                        				2->1
+                        				</button>
+                                    </div>
+                                </tr>                        
+                            </table>
+                	    </div>
+            	    </div>
+                </div><!-- Dice Bar close --> 
+                <hr class="myhrline"/>
+                
+            	<h3 style="display: inline-block;">Name: <input type="text" name="attr_character_name" style="display: inline-block;"/></h3>
+                <span style="font-size:15px;"  vertical-align="middle">Show:</span>
+                <input type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
+                <input type="checkbox" class="sheet-toggle-show"  name="attr_Power2_Check" />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
+                <input type="checkbox" class="sheet-toggle-show" name="attr_Power3_Check"  />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
+                <input type="checkbox" class="sheet-toggle-show" name="attr_Milestones" />
+                <span style="font-size:15px;"  vertical-align="middle">Milestones</span>
+
+                <div class='sheet-prime-core'>
+                 	<table style="width: 100%">
+                 	    <td>
+                    		<div class="sheet-col" style="border: 1px outset black;  background-color: lightgreen;">	
+                            	<h3>Affiliations</h3>
+                                <div>
+                                	<label for="attr_Solo">Solo:</label>
+                                	<select name="attr_Solo" placeholder="d6">
+                                		<option value="d4">d4</option>
+                                		<option value="d6">d6</option>
+                                		<option value="d8">d8</option>
+                                		<option value="d10">d10</option>
+                                		<option value="d12">d12</option>
+                                	</select>
+                                	<button	type="roll" 
+                                		class="blank-roll-button" 
+                                		value="!setattr --silent --name @{character_name} --mod --@{Solo}|1">
+                                	ADD
+                                	</button>
+                                </div>
+                                <div>
+                                	<label for="attr_Buddy">Buddy:</label>
+                                	<select name="attr_Buddy"  placeholder="d8">
+                                		<option value="d4">d4</option>
+                                		<option value="d6">d6</option>
+                                		<option value="d8">d8</option>
+                                		<option value="d10">d10</option>
+                                		<option value="d12">d12</option>
+                                	</select>
+                                	<button	type="roll" 
+                                		class="blank-roll-button" 
+                                		value="!setattr --silent --name @{character_name} --mod --@{Buddy}|1">
+                                	ADD
+                                	</button>
+                                </div>
+                                <div>
+                                	<label for="attr_Team">Team:</label>
+                                	<select name="attr_Team"  placeholder="d10">
+                                		<option value="d4">d4</option>
+                                		<option value="d6">d6</option>
+                                		<option value="d8">d8</option>
+                                		<option value="d10">d10</option>
+                                		<option value="d12">d12</option>
+                                	</select>
+                                	<button	type="roll" 
+                                		class="blank-roll-button" 
+                                		value="!setattr --silent --name @{character_name} --mod --@{Team}|1" >
+                                	ADD
+                                	</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="sheet-col" style="border: 1px outset black;  background-color: lightyellow;">	
+                            <h3>Distinctions</h3>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist1" />
+                            	<button name="attr_Dist1_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist1_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist2" />
+                            	<button name="attr_Dist2_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist2_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist3" />
+                            	<button name="attr_Dist3_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist3_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                        </div>
+                        </td>
+                	</table>
+
+                    <div style="border: 1px outset black; background-color: pink;"> 
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 1</h3>
+                                    <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet1"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                                    
+                                    <div>
+                                    	<fieldset class="repeating_powers1"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS1Power" />
+                                    		<select style="width: 60px" name="attr_PS1PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    			<option value="Shutdown">OFF</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS1PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                            <br />
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset class="repeating_SFX1"> 
+                                    	    <textarea style="width: 95%" name="attr_PS1SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: 1px outset black; background-color: beige;">
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power2_Check"  />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
+            
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 2</h3>
+                                    <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet2"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                        
+                                    <div>
+                                    	<fieldset class="repeating_powers2"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS2Power" />
+                                    		<select style="width: 60px" name="attr_PS2PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    			<option value="Shutdown">OFF</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS2PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset style="width: 100%" class="repeating_SFX2"> 
+                                    	    <textarea style="width: 95%" name="attr_PS2SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: 1px outset black;  background-color: lightblue;">
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power3_Check"  />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
+        
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 3</h3>
+                                    <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet3"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                        
+                                    <div>
+                                    	<fieldset class="repeating_powers3"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS3Power" />
+                                    		<select style="width: 60px" name="attr_PS3PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    			<option value="Shutdown">OFF</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS3PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset style="width: 100%" class="repeating_SFX3"> 
+                                    	    <textarea style="width: 95%" name="attr_PS3SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div  style="border: 1px outset black;  background-color: orange;">          
+                        <h3>Specialties</h3>
+                    	<div class="sheet-2colrow">
+                    		<div class="sheet-col">	
+                                <fieldset class="repeating_specialty1"> 
+                                    <input type="text" name="attr_Specialty1" style="text-align:right"/>
+                                    <select name="attr_Specialty1_Die" placeholder="d4">
+                                        <option value="d4">d4</option>
+                                        <option value="d6">d6</option>
+                                        <option value="d8">d8</option>
+                                        <option value="d10">d10</option>
+                                        <option value="d12">d12</option>
+                                    </select>
+                                    <button	type="roll" 
+                                        class="blank-roll-button" 
+                                        value="!setattr --silent --name @{character_name} --mod --@{Specialty1_Die}|1" >
+                                        ADD
+                                    </button>
+                                </fieldset> 
+                            </div>
+            
+                    		<div class="sheet-col">	
+                                <fieldset class="repeating_specialty2"> 
+                                    <input type="text" name="attr_Specialty2" style="text-align:right"/>
+                                    <select name="attr_Specialty2_Die" placeholder="d4">
+                                        <option value="d4">d4</option>
+                                        <option value="d6">d6</option>
+                                        <option value="d8">d8</option>
+                                        <option value="d10">d10</option>
+                                        <option value="d12">d12</option>
+                                    </select>
+                                    <button	type="roll" 
+                                        class="blank-roll-button" 
+                                        value="!setattr --silent --name @{character_name} --mod --@{Specialty2_Die}|1" >
+                                        ADD
+                                    </button>
+                                </fieldset> 
+                    		</div>
+                    	</div>
+                	</div>
+                    <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Milestones" />
+                    <span hidden style="font-size:15px;"  vertical-align="middle">Milestones</span>
+                    <div class="sheet-body">
+                    	<div class="sheet-2colrow" style="border: 1px outset black;  background-color: plum;">
+                    		<div class="sheet-col">	
+                                <h3>Milestone</h3>
+                                <input style="text-align:center;font-variant: small-caps;font-weight: bold;width: 95%" type="text" class="input-text-wide" name="attr_Milestone1" />
+                                <div >
+                                    <textarea style="width: 95%" name="attr_Milestone1_1XP" placeholder="1 XP when..."></textarea>
+                                </div>
+                                <div>
+                                	<textarea style="width: 95%" name="attr_Milestone1_3XP" placeholder="3 XP when..."></textarea>
+                                </div>
+                                <div>
+                                	<textarea style="width: 95%" name="attr_Milestone1_10XP" placeholder="10 XP when..."></textarea>
+                                </div>
+                            </div>
+                    		<div class="sheet-col">	
+                            	<h3 style="display: inline-block;">Milestone</h3>
+                        		<input style="float:right;display: inline-block;"type="number" name="attr_XP" min="0"/>
+                        		<label style="float:right;display: inline-block;">XP:</label> 
+                                <input style="text-align:center;font-variant: small-caps;font-weight: bold;width: 95%" type="text" class="input-text-wide" name="attr_Milestone2" />
+                                <div>
+                                	<textarea style="width: 95%" name="attr_Milestone2_1XP" placeholder="1 XP when..."></textarea>
+                                </div>
+                                <div>
+                                	<textarea style="width: 95%" name="attr_Milestone2_3XP" placeholder="3 XP when..."></textarea>
+                                </div>
+                                <div>
+                                	<textarea style="width: 95%" name="attr_Milestone2_10XP" placeholder="10 XP when..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class='sheet-dice-only'>
+            <div class='sheet-dice-bar'>
+             	<div class="sheet-2colrow">
+            		<div class="sheet-col">	
+                    	<table style="display: inline-block;">
+                    		<tr>
+                    			<td style="text-align:center">
+                    				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
+                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
+                    				</button>
+                    			</td>
+                    			<td style="text-align:center">
+                    				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
+                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
+                    				</button>
+                    			</td>
+                    			<td style="text-align:center">
+                    				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
+                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
+                    				</button>
+                    			</td>
+                    			<td style="text-align:center">
+                    				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
+                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
+                    				</button>
+                    			</td>
+                    			<td style="text-align:center">
+                    				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
+                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
+                    				</button>
+                    			</td>
+                    			<td style="min-width: 60;">
+                    				<button	type="roll" 
+                    					class="blank-roll-button" 
+                    					style="height:20px;"
+                    					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
+                    				    ROLL
+                    				</button>
+                    			</td>
+                    		</tr>
+                    		<tr>
+                    			<td>
+                    				<input type="number" name="attr_d4" min="0" max="99" />
+                    			</td>
+                    			<td>
+                    				<input type="number" name="attr_d6" min="0" max="99" />
+                    			</td>
+                    			<td>
+                    				<input type="number" name="attr_d8" min="0" max="99" />
+                    			</td>
+                    			<td>
+                    				<input type="number" name="attr_d10" min="0" max="99" />
+                    			</td>
+                    			<td>
+                    				<input type="number" name="attr_d12" min="0" max="99" />
+                    			</td>
+                    			<td>
+                    				<button	type="roll" 
+                    					class="blank-roll-button" 
+                    					style="height:20px;"
+                    					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
+                    				CLEAR
+                    				</button>
+                    			</td>
+                    		</tr>
+                    	</table>
+            	    </div>
+            		<div class="sheet-col">	
+                    	<table>
+                    	    <tr>
+                                <h3 style="text-align:center">Dice Pool Actions</h3>
+                    	    </tr>
+                    	    <tr>
+                    	        <div style="text-align:center">
+                                    <input type="radio" name="attr_dcharradio" value="4">
+                                    d4&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="attr_dcharradio" value="6">
+                                    d6&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="attr_dcharradio" value="8">
+                                    d8&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="attr_dcharradio" value="10">
+                                    d10&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="attr_dcharradio" value="12">
+                                    d12
+                                </div>
+                            </tr>
+                            <tr>
+                    	        <div style="text-align:center">
+                    				<button	type="roll" 
+                    				    title="Double a die"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
+                    				2x
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Step Up a die"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
+                    				UP
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Step Down a die"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
+                    				DN
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Split into 2 dice one step lower"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
+                    				/2
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Split into 3 dice two steps lower"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
+                    				/3
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Split into 4 dice three steps lower"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
+                    				/4
+                    				</button>
+                    				<button	type="roll" 
+                    				    title="Combine 2 dice into 1 die one step higher"
+                    					class="blank-roll-button" 
+                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
+                    				2->1
+                    				</button>
+                                </div>
+                            </tr>                        
+                        </table>
+            	    </div>
+        	    </div>
+            </div><!-- Dice Bar close --> 
+        </div>
+        <div class='sheet-npc'>
+            <h2>NPC Sheet</h2>
+            <span>
+                <div class='sheet-dice-bar'>
+                 	<div class="sheet-2colrow">
+                		<div class="sheet-col">	
+                        	<table style="display: inline-block;">
+                        		<tr>
+                        			<td style="text-align:center">
+                        				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="text-align:center">
+                        				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
+                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
+                        				</button>
+                        			</td>
+                        			<td style="min-width: 60;">
+                        				<button	type="roll" 
+                        					class="blank-roll-button" 
+                        					style="height:20px;"
+                        					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
+                        				    ROLL
+                        				</button>
+                        			</td>
+                        		</tr>
+                        		<tr>
+                        			<td>
+                        				<input type="number" name="attr_d4" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d6" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d8" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d10" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<input type="number" name="attr_d12" min="0" max="99" />
+                        			</td>
+                        			<td>
+                        				<button	type="roll" 
+                        					class="blank-roll-button" 
+                        					style="height:20px;"
+                        					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
+                        				CLEAR
+                        				</button>
+                        			</td>
+                        		</tr>
+                        	</table>
+                	    </div>
+                		<div class="sheet-col">	
+                        	<table>
+                        	    <tr>
+                                    <h3 style="text-align:center">Dice Pool Actions</h3>
+                        	    </tr>
+                        	    <tr>
+                        	        <div style="text-align:center">
+                                        <input type="radio" name="attr_dcharradio" value="4">
+                                        d4&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="6">
+                                        d6&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="8">
+                                        d8&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="10">
+                                        d10&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" name="attr_dcharradio" value="12">
+                                        d12
+                                    </div>
+                                </tr>
+                                <tr>
+                        	        <div style="text-align:center">
+                        				<button	type="roll" 
+                        				    title="Double a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
+                        				2x
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Step Up a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
+                        				UP
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Step Down a die"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
+                        				DN
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 2 dice one step lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
+                        				/2
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 3 dice two steps lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
+                        				/3
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Split into 4 dice three steps lower"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
+                        				/4
+                        				</button>
+                        				<button	type="roll" 
+                        				    title="Combine 2 dice into 1 die one step higher"
+                        					class="blank-roll-button" 
+                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
+                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
+                        				2->1
+                        				</button>
+                                    </div>
+                                </tr>                        
+                            </table>
+                	    </div>
+            	    </div>
+                </div><!-- Dice Bar close --> 
+                <hr class="myhrline"/>
+                
+            	<h3 style="display: inline-block;">Name: <input type="text" name="attr_character_name" style="display: inline-block;"/></h3>
+                <span style="font-size:15px;"  vertical-align="middle">Show:</span>
+                <input type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
+                <input type="checkbox" class="sheet-toggle-show"  name="attr_Power2_Check" />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
+                <input type="checkbox" class="sheet-toggle-show" name="attr_Power3_Check"  />
+                <span style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
+
+                <div class='sheet-prime-core'>
+                 	<table style="width: 100%">
+                 	    <td>
+                    		<div class="sheet-col" style="border: 1px outset black;  background-color: lightgreen;">	
+                            	<h3>Affiliations</h3>
+                                <div>
+                                	<label for="attr_Solo">Solo:</label>
+                            		<input type="number" name="attr_Solo" />
+                            		<select name="attr_SoloDie" placeholder="d4">
+                            			<option value="d4">d4</option>
+                            			<option value="d6">d6</option>
+                            			<option value="d8">d8</option>
+                            			<option value="d10">d10</option>
+                            			<option value="d12">d12</option>
+                            		</select>
+                            		<button	type="roll" 
+                            			class="blank-roll-button" 
+                            			value="!setattr --silent --name @{character_name} --mod --@{SoloDie}|@{Solo}" >
+                            			ADD
+                            		</button>
+                                </div>
+                                <div>
+                                	<label for="attr_Buddy">Buddy:</label>
+                            		<input type="number" name="attr_Buddy" />
+                                	<select name="attr_BuddyDie" placeholder="d8">
+                                		<option value="d4">d4</option>
+                                		<option value="d6">d6</option>
+                                		<option value="d8">d8</option>
+                                		<option value="d10">d10</option>
+                                		<option value="d12">d12</option>
+                                	</select>
+                                	<button	type="roll" 
+                                		class="blank-roll-button" 
+                                		value="!setattr --silent --name @{character_name} --mod --@{BuddyDie}|@{Buddy}">
+                                	    ADD
+                                	</button>
+                                </div>
+                                <div>
+                                	<label for="attr_Team">Team:</label>
+                            		<input type="number" name="attr_Team" />
+                                	<select name="attr_TeamDie" placeholder="d10">
+                                		<option value="d4">d4</option>
+                                		<option value="d6">d6</option>
+                                		<option value="d8">d8</option>
+                                		<option value="d10">d10</option>
+                                		<option value="d12">d12</option>
+                                	</select>
+                                	<button	type="roll" 
+                                		class="blank-roll-button" 
+                                		value="!setattr --silent --name @{character_name} --mod --@{TeamDie}|@{Team}" >
+                                    	ADD
+                                	</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="sheet-col" style="border: 1px outset black;  background-color: lightyellow;">	
+                            <h3>Distinctions</h3>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist1" />
+                            	<button name="attr_Dist1_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist1_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist2" />
+                            	<button name="attr_Dist2_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist2_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                            <div>
+                            	<input style="width: 65%" type="text" name="attr_Dist3" />
+                            	<button name="attr_Dist3_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
+                            	</button>
+                            	<button style="font-size:0;height:28px;"  name="attr_Dist3_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
+                            	</button>
+                            	<span>+1 PP</span>
+                            </div>
+                        </div>
+                        </td>
+                	</table>
+
+                    <div style="border: 1px outset black; background-color: pink;"> 
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 1</h3>
+                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet1"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                                    <div>
+                                    	<fieldset class="repeating_powers1"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS1Power" />
+                                    		<select style="width: 60px" name="attr_PS1PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS1PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                            <br />
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset class="repeating_SFX1"> 
+                                    	    <textarea style="width: 95%" name="attr_PS1SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: 1px outset black; background-color: beige;">
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power2_Check"  />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
+            
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 2</h3>
+                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet2"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                                    <div>
+                                    	<fieldset class="repeating_powers2"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS2Power" />
+                                    		<select style="width: 60px" name="attr_PS2PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS2PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset style="width: 100%" class="repeating_SFX2"> 
+                                    	    <textarea style="width: 95%" name="attr_PS2SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: 1px outset black;  background-color: lightblue;">
+                        <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power3_Check"  />
+                        <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
+        
+                        <div class="sheet-body" >  
+                         	<div class="sheet-2colrow">
+                        		<div class="sheet-col">	
+                                	<h3>Power Set 3</h3>
+                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet3"/>
+                                	<br />	
+                                	<h4>Powers</h4>
+                                    <div>
+                                    	<fieldset class="repeating_powers3"> 
+                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS3Power" />
+                                    		<select style="width: 60px" name="attr_PS3PowerDie" placeholder="d4">
+                                    			<option value="d4">d4</option>
+                                    			<option value="d6">d6</option>
+                                    			<option value="d8">d8</option>
+                                    			<option value="d10">d10</option>
+                                    			<option value="d12">d12</option>
+                                    		</select>
+                                    		<button	type="roll" 
+                                    			class="blank-roll-button" 
+                                    			value="!setattr --silent --name @{character_name} --mod --@{PS3PowerDie}|1" >
+                                    			ADD
+                                    		</button>
+                                    	</fieldset> 
+                                    </div>
+                                </div>
+                        		<div class="sheet-col">	
+                                	<h4>SFX and Limits</h4>
+                                    <div>
+                                    	<fieldset style="width: 100%" class="repeating_SFX3"> 
+                                    	    <textarea style="width: 95%" name="attr_PS3SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                    	</fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div  style="border: 1px outset black;  background-color: orange;">          
+                        <h3>Specialties</h3>
+                    	<div class="sheet-2colrow">
+                    		<div class="sheet-col">	
+                                <div>
+                                	<fieldset class="repeating_specialty1"> 
+                            			<input type="text" name="attr_Specialty1" style="text-align:right"/>
+                                		<select name="attr_Specialty1_Die" placeholder="d4">
+                                			<option value="d4">d4</option>
+                                			<option value="d6">d6</option>
+                                			<option value="d8">d8</option>
+                                			<option value="d10">d10</option>
+                                			<option value="d12">d12</option>
+                                		</select>
+                                		<button	type="roll" 
+                                			class="blank-roll-button" 
+                                			value="!setattr --silent --name @{character_name} --mod --@{Specialty1_Die}|1" >
+                                			ADD
+                                		</button>
+                                	</fieldset> 
+                                </div>
+                            </div>
+            
+                    		<div class="sheet-col">	
+                                <div>
+                                	<fieldset class="repeating_specialty2"> 
+                                		<input type="text" name="attr_Specialty2" style="text-align:right"/>
+                                		<select name="attr_Specialty2_Die" placeholder="d4">
+                                			<option value="d4">d4</option>
+                                			<option value="d6">d6</option>
+                                			<option value="d8">d8</option>
+                                			<option value="d10">d10</option>
+                                			<option value="d12">d12</option>
+                                		</select>
+                                		<button	type="roll" 
+                                			class="blank-roll-button" 
+                                			value="!setattr --silent --name @{character_name} --mod --@{Specialty2_Die}|1" >
+                                			ADD
+                                		</button>
+                                	</fieldset> 
+                                </div>
+                    		</div>
+                    	</div>
+                	</div>
+                </div>
+            </span>
+        </div>
+
+        <script type="text/worker">
+            const buttonlist = ["character","dice-only","npc"];
+            buttonlist.forEach(button => {
+                on(`clicked:${button}`, function() {
+                    setAttrs({
+                        sheetTab: button
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
+<!-- Sheet close --> 
+<!--End of Sheet -->
