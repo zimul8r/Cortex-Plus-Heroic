@@ -11,156 +11,167 @@
             <button type="action" name="act_dice-only" >Dice Pool Roller Only</button>
             <button type="action" name="act_npc" >NPC Sheet</button>
         </div>
+
         <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='character'  />
+
+        <div class='sheet-dice-bar'>
+         	<div class="sheet-2colrow">
+        		<div class="sheet-col">	
+                	<table style="display: inline-block;">
+                		<tr>
+                			<td style="text-align:center">
+                				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
+                				</button>
+                			</td>
+                			<td style="text-align:center">
+                				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
+                				</button>
+                			</td>
+                			<td style="text-align:center">
+                				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
+                				</button>
+                			</td>
+                			<td style="text-align:center">
+                				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
+                				</button>
+                			</td>
+                			<td style="text-align:center">
+                				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
+                				</button>
+                			</td>
+                			<td style="min-width: 70;">
+                				<button	type="roll" 
+                					class="blank-roll-button" 
+                					style="height:20px;width:70px"
+                					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
+                				    ROLL
+                				</button>
+                			</td>
+                		</tr>
+                		<tr>
+                			<td>
+                				<input type="number" name="attr_d4" min="0" max="99" />
+                			</td>
+                			<td>
+                				<input type="number" name="attr_d6" min="0" max="99" />
+                			</td>
+                			<td>
+                				<input type="number" name="attr_d8" min="0" max="99" />
+                			</td>
+                			<td>
+                				<input type="number" name="attr_d10" min="0" max="99" />
+                			</td>
+                			<td>
+                				<input type="number" name="attr_d12" min="0" max="99" />
+                			</td>
+                			<td>
+                				<button	type="action" 
+                				    title="Clear the dice pool"
+                				    name="act_Clear"
+                					style="width:40px;height:15px;padding:1px;font-size:13px;">
+                				Clear
+                				</button>
+                            </td>
+                            <td>
+                                <input hidden type="checkbox" class="sheet-toggle-show" name="attr_confirmCheck"  />
+                                <span hidden style="font-size:15px;"  vertical-align="middle">Confirm Button</span>
+                                <div class="sheet-body" >  
+                    				<button name="act_Confirm" type="action" style="background-color: lightgreen;" >
+                                    Confirm
+                                    </button>
+                                </div>
+                			</td>
+                            <td>
+                                <input hidden type="checkbox" class="sheet-toggle-show" name="attr_confirmCheck"  />
+                                <span hidden style="font-size:15px;"  vertical-align="middle">Confirm Button</span>
+                                <div class="sheet-body" >  
+                    				<button class='sheet-body' name="act_Abort" type="action" style="background-color: red;" >
+                                    Abort
+                                    </button>
+                                </div>
+                			</td>
+                		</tr>
+                	</table>
+        	    </div>
+        		<div class="sheet-col">	
+                	<table>
+                	    <tr>
+                            <h3 style="text-align:center">Dice Pool Actions</h3>
+                	    </tr>
+                	    <tr>
+                	        <div style="text-align:center">
+                                <input type="radio" name="attr_dcharradio" value="4">
+                                d4&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="attr_dcharradio" value="6">
+                                d6&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="attr_dcharradio" value="8">
+                                d8&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="attr_dcharradio" value="10">
+                                d10&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="attr_dcharradio" value="12">
+                                d12
+                            </div>
+                        </tr>
+                        <tr>
+                	        <div style="text-align:center">
+                				<button	type="action" 
+                				    title="Double a die"
+                				    name="act_Double"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				2x
+                				</button>
+                				<button	type="action" 
+                				    title="Step Up a die"
+                				    name="act_Stepup"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				UP
+                				</button>
+                				<button	type="action" 
+                				    title="Step Down a die"
+                				    name="act_Stepdown"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				DN
+                				</button>
+                				<button	type="action" 
+                				    title="Split into 2 dice one step lower"
+                				    name="act_Split2"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				/2
+                				</button>
+                				<button	type="action" 
+                				    title="Split into 3 dice two steps lower"
+                				    name="act_Split3"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				/3
+                				</button>
+                				<button	type="action" 
+                				    title="Split into 4 dice three steps lower"
+                				    name="act_Split4"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				/4
+                				</button>
+                				<button	type="action" 
+                				    title="Combine 2 dice into 1 die one step higher"
+                				    name="act_Combine2"
+                					style="width:30px;height:15px;padding:1px;font-size:13px;">
+                				2->1
+                				</button>
+                            </div>
+                        </tr>                        
+                    </table>
+        	    </div>
+    	    </div>
+        </div><!-- Dice Bar close --> 
+        <hr style="margin: 0px 0px 0px 0px;"/>
 
         <div class='sheet-character'>
             <h2>Heroic Character Sheet</h2>
             <span>
-
-                <div class='sheet-dice-bar'>
-                 	<div class="sheet-2colrow">
-                		<div class="sheet-col">	
-                        	<table style="display: inline-block;">
-                        		<tr>
-                        			<td style="text-align:center">
-                        				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="min-width: 60;">
-                        				<button	type="roll" 
-                        					class="blank-roll-button" 
-                        					style="height:20px;"
-                        					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
-                        				    ROLL
-                        				</button>
-                        			</td>
-                        		</tr>
-                        		<tr>
-                        			<td>
-                        				<input type="number" name="attr_d4" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d6" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d8" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d10" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d12" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<button	type="roll" 
-                        					class="blank-roll-button" 
-                        					style="height:20px;"
-                        					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
-                        				CLEAR
-                        				</button>
-                        			</td>
-                        		</tr>
-                        	</table>
-                	    </div>
-                		<div class="sheet-col">	
-                        	<table>
-                        	    <tr>
-                                    <h3 style="text-align:center">Dice Pool Actions</h3>
-                        	    </tr>
-                        	    <tr>
-                        	        <div style="text-align:center">
-                                        <input type="radio" name="attr_dcharradio" value="4">
-                                        d4&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="6">
-                                        d6&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="8">
-                                        d8&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="10">
-                                        d10&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="12">
-                                        d12
-                                    </div>
-                                </tr>
-                                <tr>
-                        	        <div style="text-align:center">
-                        				<button	type="roll" 
-                        				    title="Double a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
-                        				2x
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Step Up a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
-                        				UP
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Step Down a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
-                        				DN
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 2 dice one step lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
-                        				/2
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 3 dice two steps lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
-                        				/3
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 4 dice three steps lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
-                        				/4
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Combine 2 dice into 1 die one step higher"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
-                        				2->1
-                        				</button>
-                                    </div>
-                                </tr>                        
-                            </table>
-                	    </div>
-            	    </div>
-                </div><!-- Dice Bar close --> 
-                <hr class="myhrline"/>
-                
             	<h3 style="display: inline-block;">Name: <input type="text" name="attr_character_name" style="display: inline-block;"/></h3>
                 <span style="font-size:15px;"  vertical-align="middle">Show:</span>
                 <input type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
@@ -186,11 +197,9 @@
                                 		<option value="d10">d10</option>
                                 		<option value="d12">d12</option>
                                 	</select>
-                                	<button	type="roll" 
-                                		class="blank-roll-button" 
-                                		value="!setattr --silent --name @{character_name} --mod --@{Solo}|1">
-                                	ADD
-                                	</button>
+                    				<button name="act_UseSolo" type="action" >
+                                    USE
+                                    </button>
                                 </div>
                                 <div>
                                 	<label for="attr_Buddy">Buddy:</label>
@@ -201,11 +210,9 @@
                                 		<option value="d10">d10</option>
                                 		<option value="d12">d12</option>
                                 	</select>
-                                	<button	type="roll" 
-                                		class="blank-roll-button" 
-                                		value="!setattr --silent --name @{character_name} --mod --@{Buddy}|1">
-                                	ADD
-                                	</button>
+                    				<button name="act_UseBuddy" type="action" >
+                                    USE
+                                    </button>
                                 </div>
                                 <div>
                                 	<label for="attr_Team">Team:</label>
@@ -216,11 +223,9 @@
                                 		<option value="d10">d10</option>
                                 		<option value="d12">d12</option>
                                 	</select>
-                                	<button	type="roll" 
-                                		class="blank-roll-button" 
-                                		value="!setattr --silent --name @{character_name} --mod --@{Team}|1" >
-                                	ADD
-                                	</button>
+                    				<button name="act_UseTeam" type="action" >
+                                    USE
+                                    </button>
                                 </div>
                             </div>
                         </td>
@@ -283,11 +288,9 @@
                                     			<option value="d12">d12</option>
                                     			<option value="Shutdown">OFF</option>
                                     		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS1PowerDie}|1" >
-                                    			ADD
-                                    		</button>
+                            				<button name="act_UsePS1Power" type="action" >
+                                            USE
+                                            </button>
                                             <br />
                                     	</fieldset> 
                                     </div>
@@ -327,11 +330,9 @@
                                     			<option value="d12">d12</option>
                                     			<option value="Shutdown">OFF</option>
                                     		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS2PowerDie}|1" >
-                                    			ADD
-                                    		</button>
+                            				<button name="act_UsePS2Power" type="action" >
+                                            USE
+                                            </button>
                                     	</fieldset> 
                                     </div>
                                 </div>
@@ -370,11 +371,9 @@
                                     			<option value="d12">d12</option>
                                     			<option value="Shutdown">OFF</option>
                                     		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS3PowerDie}|1" >
-                                    			ADD
-                                    		</button>
+                            				<button name="act_UsePS3Power" type="action" >
+                                            USE
+                                            </button>
                                     	</fieldset> 
                                     </div>
                                 </div>
@@ -396,17 +395,15 @@
                     		<div class="sheet-col">	
                                 <fieldset class="repeating_specialty1"> 
                                     <input type="text" name="attr_Specialty1" style="text-align:right"/>
-                                    <select name="attr_Specialty1_Die" placeholder="d4">
+                                    <select name="attr_Specialty1Die" placeholder="d4">
                                         <option value="d4">d4</option>
                                         <option value="d6">d6</option>
                                         <option value="d8">d8</option>
                                         <option value="d10">d10</option>
                                         <option value="d12">d12</option>
                                     </select>
-                                    <button	type="roll" 
-                                        class="blank-roll-button" 
-                                        value="!setattr --silent --name @{character_name} --mod --@{Specialty1_Die}|1" >
-                                        ADD
+                    				<button name="act_UseSpecialty1" type="action" >
+                                    USE
                                     </button>
                                 </fieldset> 
                             </div>
@@ -414,17 +411,15 @@
                     		<div class="sheet-col">	
                                 <fieldset class="repeating_specialty2"> 
                                     <input type="text" name="attr_Specialty2" style="text-align:right"/>
-                                    <select name="attr_Specialty2_Die" placeholder="d4">
+                                    <select name="attr_Specialty2Die" placeholder="d4">
                                         <option value="d4">d4</option>
                                         <option value="d6">d6</option>
                                         <option value="d8">d8</option>
                                         <option value="d10">d10</option>
                                         <option value="d12">d12</option>
                                     </select>
-                                    <button	type="roll" 
-                                        class="blank-roll-button" 
-                                        value="!setattr --silent --name @{character_name} --mod --@{Specialty2_Die}|1" >
-                                        ADD
+                    				<button name="act_UseSpecialty2" type="action" >
+                                    USE
                                     </button>
                                 </fieldset> 
                     		</div>
@@ -468,296 +463,11 @@
             </span>
         </div>
         <div class='sheet-dice-only'>
-            <div class='sheet-dice-bar'>
-             	<div class="sheet-2colrow">
-            		<div class="sheet-col">	
-                    	<table style="display: inline-block;">
-                    		<tr>
-                    			<td style="text-align:center">
-                    				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
-                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
-                    				</button>
-                    			</td>
-                    			<td style="text-align:center">
-                    				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
-                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
-                    				</button>
-                    			</td>
-                    			<td style="text-align:center">
-                    				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
-                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
-                    				</button>
-                    			</td>
-                    			<td style="text-align:center">
-                    				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
-                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
-                    				</button>
-                    			</td>
-                    			<td style="text-align:center">
-                    				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
-                    					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
-                    				</button>
-                    			</td>
-                    			<td style="min-width: 60;">
-                    				<button	type="roll" 
-                    					class="blank-roll-button" 
-                    					style="height:20px;"
-                    					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
-                    				    ROLL
-                    				</button>
-                    			</td>
-                    		</tr>
-                    		<tr>
-                    			<td>
-                    				<input type="number" name="attr_d4" min="0" max="99" />
-                    			</td>
-                    			<td>
-                    				<input type="number" name="attr_d6" min="0" max="99" />
-                    			</td>
-                    			<td>
-                    				<input type="number" name="attr_d8" min="0" max="99" />
-                    			</td>
-                    			<td>
-                    				<input type="number" name="attr_d10" min="0" max="99" />
-                    			</td>
-                    			<td>
-                    				<input type="number" name="attr_d12" min="0" max="99" />
-                    			</td>
-                    			<td>
-                    				<button	type="roll" 
-                    					class="blank-roll-button" 
-                    					style="height:20px;"
-                    					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
-                    				CLEAR
-                    				</button>
-                    			</td>
-                    		</tr>
-                    	</table>
-            	    </div>
-            		<div class="sheet-col">	
-                    	<table>
-                    	    <tr>
-                                <h3 style="text-align:center">Dice Pool Actions</h3>
-                    	    </tr>
-                    	    <tr>
-                    	        <div style="text-align:center">
-                                    <input type="radio" name="attr_dcharradio" value="4">
-                                    d4&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="attr_dcharradio" value="6">
-                                    d6&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="attr_dcharradio" value="8">
-                                    d8&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="attr_dcharradio" value="10">
-                                    d10&nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="attr_dcharradio" value="12">
-                                    d12
-                                </div>
-                            </tr>
-                            <tr>
-                    	        <div style="text-align:center">
-                    				<button	type="roll" 
-                    				    title="Double a die"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
-                    				2x
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Step Up a die"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
-                    				UP
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Step Down a die"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
-                    				DN
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Split into 2 dice one step lower"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
-                    				/2
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Split into 3 dice two steps lower"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
-                    				/3
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Split into 4 dice three steps lower"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
-                    				/4
-                    				</button>
-                    				<button	type="roll" 
-                    				    title="Combine 2 dice into 1 die one step higher"
-                    					class="blank-roll-button" 
-                    					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                    					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
-                    				2->1
-                    				</button>
-                                </div>
-                            </tr>                        
-                        </table>
-            	    </div>
-        	    </div>
-            </div><!-- Dice Bar close --> 
         </div>
         <div class='sheet-npc'>
             <h2>NPC Sheet</h2>
             <span>
-                <div class='sheet-dice-bar'>
-                 	<div class="sheet-2colrow">
-                		<div class="sheet-col">	
-                        	<table style="display: inline-block;">
-                        		<tr>
-                        			<td style="text-align:center">
-                        				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d8"  type="roll" value="/roll d8" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d10"  type="roll" value="/roll d10" style="font-size:0;height:30px;">		  
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d10G.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="text-align:center">
-                        				<button name="roll_d12"  type="roll" value="/roll d12" style="font-size:0;height:30px;">
-                        					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d12P.png?raw=true" width="30" height="30"/>
-                        				</button>
-                        			</td>
-                        			<td style="min-width: 60;">
-                        				<button	type="roll" 
-                        					class="blank-roll-button" 
-                        					style="height:20px;"
-                        					value="/roll {[[0+@{d4}]]d4 + [[0+@{d6}]]d6 + [[0+@{d8}]]d8 + [[0+@{d10}]]d10 + [[0+@{d12}]]d12}k2">
-                        				    ROLL
-                        				</button>
-                        			</td>
-                        		</tr>
-                        		<tr>
-                        			<td>
-                        				<input type="number" name="attr_d4" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d6" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d8" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d10" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<input type="number" name="attr_d12" min="0" max="99" />
-                        			</td>
-                        			<td>
-                        				<button	type="roll" 
-                        					class="blank-roll-button" 
-                        					style="height:20px;"
-                        					value="!setattr ?{If you are sure| click Submit} --silent --name @{character_name} --d4|'' --d6|'' --d8|'' --d10|'' --d12|''">
-                        				CLEAR
-                        				</button>
-                        			</td>
-                        		</tr>
-                        	</table>
-                	    </div>
-                		<div class="sheet-col">	
-                        	<table>
-                        	    <tr>
-                                    <h3 style="text-align:center">Dice Pool Actions</h3>
-                        	    </tr>
-                        	    <tr>
-                        	        <div style="text-align:center">
-                                        <input type="radio" name="attr_dcharradio" value="4">
-                                        d4&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="6">
-                                        d6&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="8">
-                                        d8&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="10">
-                                        d10&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" name="attr_dcharradio" value="12">
-                                        d12
-                                    </div>
-                                </tr>
-                                <tr>
-                        	        <div style="text-align:center">
-                        				<button	type="roll" 
-                        				    title="Double a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|1 ">
-                        				2x
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Step Up a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}+2]]|1 ">
-                        				UP
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Step Down a die"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|1 ">
-                        				DN
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 2 dice one step lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-2]]|2 ">
-                        				/2
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 3 dice two steps lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-4]]|3 ">
-                        				/3
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Split into 4 dice three steps lower"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-1 --d[[@{dcharradio}-6]]|4 ">
-                        				/4
-                        				</button>
-                        				<button	type="roll" 
-                        				    title="Combine 2 dice into 1 die one step higher"
-                        					class="blank-roll-button" 
-                        					style="width:30px;height:15px;padding:1px;font-size:13px;"
-                        					value="!setattr --silent --name @{character_name} --mod --d@{dcharradio}|-2 --d[[@{dcharradio}+2]]|1 ">
-                        				2->1
-                        				</button>
-                                    </div>
-                                </tr>                        
-                            </table>
-                	    </div>
-            	    </div>
-                </div><!-- Dice Bar close --> 
-                <hr class="myhrline"/>
-                
+
             	<h3 style="display: inline-block;">Name: <input type="text" name="attr_character_name" style="display: inline-block;"/></h3>
                 <span style="font-size:15px;"  vertical-align="middle">Show:</span>
                 <input type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
@@ -1037,6 +747,439 @@
                     setAttrs({
                         sheetTab: button
                     });
+                });
+            });
+        </script>
+        <script type="text/worker">
+            // Clear Pool button
+            on("clicked:Clear", function(eventInfo) {
+                console.log("Activate Debug");
+                getAttrs(["confirmCheck"], function(values) {
+                    console.log("In getAttrs");
+                    setAttrs({
+                        "confirmCheck": "on"
+                    });
+                });
+             });
+
+            on("clicked:Abort", function(eventInfo) {
+                console.log("Activate Debug");
+                getAttrs(["confirmCheck"], function(values) {
+                    console.log("In getAttrs");
+                    setAttrs({
+                        "confirmCheck": "0"
+                    });
+                });
+             });
+
+            on("clicked:Confirm", function(eventInfo) {
+                console.log("Activate Debug");
+                getAttrs(["d4", "d6", "d8", "d10", "d12","confirmCheck"], function(values) {
+                    console.log("In getAttrs");
+                    setAttrs({
+                        "confirmCheck": "0",
+                        d4: 0,
+                        d6: 0,
+                        d8: 0,
+                        d10: 0,
+                        d12: 0,
+                    });
+                });
+             });
+        </script>
+        <script type="text/worker">
+            // Affiliation buttons
+            const afflist = ["UseSolo","UseBuddy","UseTeam"];
+            afflist.forEach(aff => {
+                on(`clicked:${aff}`, function() {
+//                    console.log("trigger: "+aff);
+                    getAttrs(["d4", "d6", "d8", "d10", "d12", "Solo", "Buddy", "Team", aff.slice(3)], function(values) {
+                        console.log("In getAttrs");
+                        switch(values[aff.slice(3)]){
+                            case "d4":
+                                setAttrs({
+                                    ["d4"]: parseInt(values["d4"]) + 1
+                                });
+                                break;
+                            case "d6":
+                                setAttrs({
+                                    ["d6"]: parseInt(values["d6"]) + 1
+                                });
+                                break;
+                            case "d8":
+                                setAttrs({
+                                    ["d8"]: parseInt(values["d8"]) + 1
+                                });
+                                break;
+                            case "d10":
+                                setAttrs({
+                                    ["d10"]: parseInt(values["d10"]) + 1
+                                });
+                                break;
+                            case "d12":
+                                setAttrs({
+                                    ["d12"]: parseInt(values["d12"]) + 1
+                                });
+                                break;
+                        }
+                    });
+                });
+            });
+        </script>
+        <script type="text/worker">
+            // Specialties buttons
+            on("clicked:repeating_specialty1", function(eventinfo) {
+                // Check the current value of the hidden attribute.
+                const rowid = eventinfo.sourceAttribute.split('_')[2];
+                getAttrs(["d4", "d6", "d8", "d10", "d12",`repeating_specialty1_${rowid}_Specialty1Die`], function(values) {
+                    console.log("In getAttrs");
+                    switch(values[`repeating_specialty1_${rowid}_Specialty1Die`]){
+                        case "d4":
+                            setAttrs({
+                                ["d4"]: parseInt(values["d4"]) + 1
+                            });
+                            break;
+                        case "d6":
+                            setAttrs({
+                                ["d6"]: parseInt(values["d6"]) + 1
+                            });
+                            break;
+                        case "d8":
+                            setAttrs({
+                                ["d8"]: parseInt(values["d8"]) + 1
+                            });
+                            break;
+                        case "d10":
+                            setAttrs({
+                                ["d10"]: parseInt(values["d10"]) + 1
+                            });
+                            break;
+                        case "d12":
+                            setAttrs({
+                                ["d12"]: parseInt(values["d12"]) + 1
+                            });
+                            break;
+                    }
+                }); 
+            });
+            on("clicked:repeating_specialty2", function(eventinfo) {
+                // Check the current value of the hidden attribute.
+                const rowid = eventinfo.sourceAttribute.split('_')[2];
+                getAttrs(["d4", "d6", "d8", "d10", "d12",`repeating_specialty2_${rowid}_Specialty2Die`], function(values) {
+                    console.log("In getAttrs");
+                    switch(values[`repeating_specialty2_${rowid}_Specialty2Die`]){
+                        case "d4":
+                            setAttrs({
+                                ["d4"]: parseInt(values["d4"]) + 1
+                            });
+                            break;
+                        case "d6":
+                            setAttrs({
+                                ["d6"]: parseInt(values["d6"]) + 1
+                            });
+                            break;
+                        case "d8":
+                            setAttrs({
+                                ["d8"]: parseInt(values["d8"]) + 1
+                            });
+                            break;
+                        case "d10":
+                            setAttrs({
+                                ["d10"]: parseInt(values["d10"]) + 1
+                            });
+                            break;
+                        case "d12":
+                            setAttrs({
+                                ["d12"]: parseInt(values["d12"]) + 1
+                            });
+                            break;
+                    }
+                }); 
+            });
+        </script>
+        <script type="text/worker">
+            // Power Set buttons
+            on("clicked:repeating_powers1", function(eventinfo) {
+                // Check the current value of the hidden attribute.
+                const rowid = eventinfo.sourceAttribute.split('_')[2];
+                getAttrs(["d4", "d6", "d8", "d10", "d12",`repeating_powers1_${rowid}_PS1PowerDie`], function(values) {
+                    console.log("In getAttrs");
+                    switch(values[`repeating_powers1_${rowid}_PS1PowerDie`]){
+                        case "d4":
+                            setAttrs({
+                                ["d4"]: parseInt(values["d4"]) + 1
+                            });
+                            break;
+                        case "d6":
+                            setAttrs({
+                                ["d6"]: parseInt(values["d6"]) + 1
+                            });
+                            break;
+                        case "d8":
+                            setAttrs({
+                                ["d8"]: parseInt(values["d8"]) + 1
+                            });
+                            break;
+                        case "d10":
+                            setAttrs({
+                                ["d10"]: parseInt(values["d10"]) + 1
+                            });
+                            break;
+                        case "d12":
+                            setAttrs({
+                                ["d12"]: parseInt(values["d12"]) + 1
+                            });
+                            break;
+                    }
+                }); 
+            });
+            on("clicked:repeating_powers2", function(eventinfo) {
+                // Check the current value of the hidden attribute.
+                const rowid = eventinfo.sourceAttribute.split('_')[2];
+                getAttrs(["d4", "d6", "d8", "d10", "d12",`repeating_powers2_${rowid}_PS2PowerDie`], function(values) {
+                    console.log("In getAttrs");
+                    switch(values[`repeating_powers2_${rowid}_PS2PowerDie`]){
+                        case "d4":
+                            setAttrs({
+                                ["d4"]: parseInt(values["d4"]) + 1
+                            });
+                            break;
+                        case "d6":
+                            setAttrs({
+                                ["d6"]: parseInt(values["d6"]) + 1
+                            });
+                            break;
+                        case "d8":
+                            setAttrs({
+                                ["d8"]: parseInt(values["d8"]) + 1
+                            });
+                            break;
+                        case "d10":
+                            setAttrs({
+                                ["d10"]: parseInt(values["d10"]) + 1
+                            });
+                            break;
+                        case "d12":
+                            setAttrs({
+                                ["d12"]: parseInt(values["d12"]) + 1
+                            });
+                            break;
+                    }
+                }); 
+            });
+            on("clicked:repeating_powers3", function(eventinfo) {
+                // Check the current value of the hidden attribute.
+                const rowid = eventinfo.sourceAttribute.split('_')[2];
+                getAttrs(["d4", "d6", "d8", "d10", "d12",`repeating_powers3_${rowid}_PS3PowerDie`], function(values) {
+                    console.log("In getAttrs");
+                    switch(values[`repeating_powers3_${rowid}_PS3PowerDie`]){
+                        case "d4":
+                            setAttrs({
+                                ["d4"]: parseInt(values["d4"]) + 1
+                            });
+                            break;
+                        case "d6":
+                            setAttrs({
+                                ["d6"]: parseInt(values["d6"]) + 1
+                            });
+                            break;
+                        case "d8":
+                            setAttrs({
+                                ["d8"]: parseInt(values["d8"]) + 1
+                            });
+                            break;
+                        case "d10":
+                            setAttrs({
+                                ["d10"]: parseInt(values["d10"]) + 1
+                            });
+                            break;
+                        case "d12":
+                            setAttrs({
+                                ["d12"]: parseInt(values["d12"]) + 1
+                            });
+                            break;
+                    }
+                }); 
+            });
+        </script>
+        <script type="text/worker">
+            // Dice Pool Action buttons 
+            on("clicked:Double", function(eventInfo) {
+                console.log("Activate Debug");
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>0){
+                                setAttrs({d4: parseInt(values.d4) + 1});
+                            }
+                            break;
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Stepup", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>0){
+                                setAttrs({d4: parseInt(values.d4) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                                
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Stepdown", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split2", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 6:
+                            setAttrs({d6: parseInt(values.d6) - 1});
+                            setAttrs({d4: parseInt(values.d4) + 2});
+                            break;
+                        case 8:
+                            setAttrs({d8: parseInt(values.d8) - 1});
+                            setAttrs({d6: parseInt(values.d6) + 2});
+                            break;
+                        case 10:
+                            setAttrs({d10: parseInt(values.d10) - 1});
+                            setAttrs({d8: parseInt(values.d8) + 2});
+                            break;
+                        case 12:
+                            setAttrs({d12: parseInt(values.d12) - 1});
+                            setAttrs({d10: parseInt(values.d10) + 2});
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split3", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 8:
+                            setAttrs({d8: parseInt(values.d8) - 1});
+                            setAttrs({d4: parseInt(values.d4) + 3});
+                            break;
+                        case 10:
+                            setAttrs({d10: parseInt(values.d10) - 1});
+                            setAttrs({d6: parseInt(values.d6) + 3});
+                            break;
+                        case 12:
+                            setAttrs({d12: parseInt(values.d12) - 1});
+                            setAttrs({d8: parseInt(values.d8) + 3});
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split4", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 10:
+                            setAttrs({d10: parseInt(values.d10) - 1});
+                            setAttrs({d4: parseInt(values.d4) + 4});
+                            break;
+                        case 12:
+                            setAttrs({d12: parseInt(values.d12) - 1});
+                            setAttrs({d6: parseInt(values.d6) + 4});
+                            break;
+                    }
+                });
+            });
+            on("clicked:Combine2", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>1){
+                                setAttrs({d4: parseInt(values.d4) - 2});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                                
+                        case 6:
+                            if(parseInt(values.d6)>1){
+                                setAttrs({d6: parseInt(values.d6) - 2});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>1){
+                                setAttrs({d8: parseInt(values.d8) - 2});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>1){
+                                setAttrs({d10: parseInt(values.d10) - 2});
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
                 });
             });
         </script>
