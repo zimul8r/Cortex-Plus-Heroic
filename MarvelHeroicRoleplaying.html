@@ -1101,20 +1101,28 @@
                 getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
                     switch(parseInt(values.dcharradio)){
                         case 6:
-                            setAttrs({d6: parseInt(values.d6) - 1});
-                            setAttrs({d4: parseInt(values.d4) + 2});
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 2});
+                            }
                             break;
                         case 8:
-                            setAttrs({d8: parseInt(values.d8) - 1});
-                            setAttrs({d6: parseInt(values.d6) + 2});
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 2});
+                            }
                             break;
                         case 10:
-                            setAttrs({d10: parseInt(values.d10) - 1});
-                            setAttrs({d8: parseInt(values.d8) + 2});
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 2});
+                            }
                             break;
                         case 12:
-                            setAttrs({d12: parseInt(values.d12) - 1});
-                            setAttrs({d10: parseInt(values.d10) + 2});
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 2});
+                            }
                             break;
                     }
                 });
@@ -1123,16 +1131,22 @@
                 getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
                     switch(parseInt(values.dcharradio)){
                         case 8:
-                            setAttrs({d8: parseInt(values.d8) - 1});
-                            setAttrs({d4: parseInt(values.d4) + 3});
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 3});
+                            }
                             break;
                         case 10:
-                            setAttrs({d10: parseInt(values.d10) - 1});
-                            setAttrs({d6: parseInt(values.d6) + 3});
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 3});
+                            }
                             break;
                         case 12:
-                            setAttrs({d12: parseInt(values.d12) - 1});
-                            setAttrs({d8: parseInt(values.d8) + 3});
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 3});
+                            }
                             break;
                     }
                 });
@@ -1141,12 +1155,16 @@
                 getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
                     switch(parseInt(values.dcharradio)){
                         case 10:
-                            setAttrs({d10: parseInt(values.d10) - 1});
-                            setAttrs({d4: parseInt(values.d4) + 4});
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 4});
+                            }
                             break;
                         case 12:
-                            setAttrs({d12: parseInt(values.d12) - 1});
-                            setAttrs({d6: parseInt(values.d6) + 4});
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 4});
+                            }
                             break;
                     }
                 });
