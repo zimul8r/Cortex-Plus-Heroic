@@ -90,7 +90,7 @@
                                 <input hidden type="checkbox" class="sheet-toggle-show" name="attr_confirmCheck"  />
                                 <span hidden style="font-size:15px;"  vertical-align="middle">Confirm Button</span>
                                 <div class="sheet-body" >  
-                    				<button class='sheet-body' name="act_Abort" type="action" style="background-color: red;" >
+                    				<button class='sheet-body' name="act_Abort" type="action" style="background-color: red;color: white;" >
                                     Abort
                                     </button>
                                 </div>
@@ -297,30 +297,30 @@
                             <h3>Distinctions</h3>
                             <div>
                             	<input style="width: 65%" type="text" name="attr_Dist1" />
-                            	<button name="attr_Dist1d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<button name="act_Dist1d8"  type="action" style="font-size:0;height:28px;">
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist1d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist1d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
                             </div>
                             <div>
                             	<input style="width: 65%" type="text" name="attr_Dist2" />
-                            	<button name="attr_Dist2d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<button name="act_Dist2d8"  type="action" >
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist2d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist2d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
                             </div>
                             <div>
                             	<input style="width: 65%" type="text" name="attr_Dist3" />
-                            	<button name="attr_Dist3d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<button name="act_Dist3d8"  type="action" >
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist3d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist3d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
@@ -931,6 +931,205 @@
              });
         </script>
         <script type="text/worker">
+            // Dice Pool Action buttons 
+            on("clicked:Double", function(eventInfo) {
+                console.log("Activate Debug");
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>0){
+                                setAttrs({d4: parseInt(values.d4) + 1});
+                            }
+                            break;
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Stepup", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>0){
+                                setAttrs({d4: parseInt(values.d4) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                                
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Stepdown", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split2", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 6:
+                            if(parseInt(values.d6)>0){
+                                setAttrs({d6: parseInt(values.d6) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 2});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 2});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 2});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d10: parseInt(values.d10) + 2});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split3", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 8:
+                            if(parseInt(values.d8)>0){
+                                setAttrs({d8: parseInt(values.d8) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 3});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 3});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d8: parseInt(values.d8) + 3});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Split4", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 10:
+                            if(parseInt(values.d10)>0){
+                                setAttrs({d10: parseInt(values.d10) - 1});
+                                setAttrs({d4: parseInt(values.d4) + 4});
+                            }
+                            break;
+                        case 12:
+                            if(parseInt(values.d12)>0){
+                                setAttrs({d12: parseInt(values.d12) - 1});
+                                setAttrs({d6: parseInt(values.d6) + 4});
+                            }
+                            break;
+                    }
+                });
+            });
+            on("clicked:Combine2", function(eventInfo) {
+                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
+                    switch(parseInt(values.dcharradio)){
+                        case 4:
+                            if(parseInt(values.d4)>1){
+                                setAttrs({d4: parseInt(values.d4) - 2});
+                                setAttrs({d6: parseInt(values.d6) + 1});
+                            }
+                            break;
+                                
+                        case 6:
+                            if(parseInt(values.d6)>1){
+                                setAttrs({d6: parseInt(values.d6) - 2});
+                                setAttrs({d8: parseInt(values.d8) + 1});
+                            }
+                            break;
+                        case 8:
+                            if(parseInt(values.d8)>1){
+                                setAttrs({d8: parseInt(values.d8) - 2});
+                                setAttrs({d10: parseInt(values.d10) + 1});
+                            }
+                            break;
+                        case 10:
+                            if(parseInt(values.d10)>1){
+                                setAttrs({d10: parseInt(values.d10) - 2});
+                                setAttrs({d12: parseInt(values.d12) + 1});
+                            }
+                            break;
+                    }
+                });
+            });
+        </script>
+        <script type="text/worker">
             // Affiliation buttons
             const afflist = ["UseSolo","UseBuddy","UseTeam"];
             afflist.forEach(aff => {
@@ -996,6 +1195,34 @@
                                     break;
                             }
                         }
+                    });
+                });
+            });
+        </script>
+        <script type="text/worker">
+            // Distinction buttons
+            const dist1list = ["Dist1d8","Dist2d8","Dist3d8"];
+            dist1list.forEach(dist1 => {
+                on(`clicked:${dist1}`, function() {
+                    console.log("Activate Debug");
+                    getAttrs(["d8"], function(values) {
+                        console.log("In getAttrs");
+                        setAttrs({
+                            ["d8"]: parseInt(values["d8"]) + 1
+                        });
+                    });
+                });
+            });
+        
+            const dist2list = ["Dist1d4","Dist2d4","Dist3d4"];
+            dist2list.forEach(dist2 => {
+                on(`clicked:${dist2}`, function() {
+                    console.log("Activate Debug");
+                    getAttrs(["d4"], function(values) {
+                        console.log("In getAttrs");
+                        setAttrs({
+                            ["d4"]: parseInt(values["d4"]) + 1
+                        });
                     });
                 });
             });
@@ -1133,34 +1360,6 @@
                         }
                     }
                 }); 
-            });
-        </script>
-        <script type="text/worker">
-            // Distinction buttons
-            const buttonlist = ["Dist1d8","Dist2d8","Dist3d8"];
-            buttonlist.forEach(button => {
-                on(`clicked:${button}`, function() {
-                    console.log("Activate Debug");
-                    getAttrs(["d8"], function(values) {
-                        console.log("In getAttrs");
-                        setAttrs({
-                            d8: vaules{"d8"] +1
-                        });
-                    });
-                });
-            });
-        
-            const buttonlist = ["Dist1d4","Dist2d4","Dist3d4"];
-            buttonlist.forEach(button => {
-                on(`clicked:${button}`, function() {
-                    console.log("Activate Debug");
-                    getAttrs(["d4"], function(values) {
-                        console.log("In getAttrs");
-                        setAttrs({
-                            d4: vaules{"d4"] +1
-                        });
-                    });
-                });
             });
         </script>
         <script type="text/worker">
@@ -1365,205 +1564,6 @@
                         
                     }
                 }); 
-            });
-        </script>
-        <script type="text/worker">
-            // Dice Pool Action buttons 
-            on("clicked:Double", function(eventInfo) {
-                console.log("Activate Debug");
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 4:
-                            if(parseInt(values.d4)>0){
-                                setAttrs({d4: parseInt(values.d4) + 1});
-                            }
-                            break;
-                        case 6:
-                            if(parseInt(values.d6)>0){
-                                setAttrs({d6: parseInt(values.d6) + 1});
-                            }
-                            break;
-                        case 8:
-                            if(parseInt(values.d8)>0){
-                                setAttrs({d8: parseInt(values.d8) + 1});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) + 1});
-                            }
-                            break;
-                        case 12:
-                            if(parseInt(values.d12)>0){
-                                setAttrs({d12: parseInt(values.d12) + 1});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Stepup", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 4:
-                            if(parseInt(values.d4)>0){
-                                setAttrs({d4: parseInt(values.d4) - 1});
-                                setAttrs({d6: parseInt(values.d6) + 1});
-                            }
-                            break;
-                                
-                        case 6:
-                            if(parseInt(values.d6)>0){
-                                setAttrs({d6: parseInt(values.d6) - 1});
-                                setAttrs({d8: parseInt(values.d8) + 1});
-                            }
-                            break;
-                        case 8:
-                            if(parseInt(values.d8)>0){
-                                setAttrs({d8: parseInt(values.d8) - 1});
-                                setAttrs({d10: parseInt(values.d10) + 1});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) - 1});
-                                setAttrs({d12: parseInt(values.d12) + 1});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Stepdown", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 6:
-                            if(parseInt(values.d6)>0){
-                                setAttrs({d6: parseInt(values.d6) - 1});
-                                setAttrs({d4: parseInt(values.d4) + 1});
-                            }
-                            break;
-                        case 8:
-                            if(parseInt(values.d8)>0){
-                                setAttrs({d8: parseInt(values.d8) - 1});
-                                setAttrs({d6: parseInt(values.d6) + 1});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) - 1});
-                                setAttrs({d8: parseInt(values.d8) + 1});
-                            }
-                            break;
-                        case 12:
-                            if(parseInt(values.d12)>0){
-                                setAttrs({d12: parseInt(values.d12) - 1});
-                                setAttrs({d10: parseInt(values.d10) + 1});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Split2", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 6:
-                            if(parseInt(values.d6)>0){
-                                setAttrs({d6: parseInt(values.d6) - 1});
-                                setAttrs({d4: parseInt(values.d4) + 2});
-                            }
-                            break;
-                        case 8:
-                            if(parseInt(values.d8)>0){
-                                setAttrs({d8: parseInt(values.d8) - 1});
-                                setAttrs({d6: parseInt(values.d6) + 2});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) - 1});
-                                setAttrs({d8: parseInt(values.d8) + 2});
-                            }
-                            break;
-                        case 12:
-                            if(parseInt(values.d12)>0){
-                                setAttrs({d12: parseInt(values.d12) - 1});
-                                setAttrs({d10: parseInt(values.d10) + 2});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Split3", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 8:
-                            if(parseInt(values.d8)>0){
-                                setAttrs({d8: parseInt(values.d8) - 1});
-                                setAttrs({d4: parseInt(values.d4) + 3});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) - 1});
-                                setAttrs({d6: parseInt(values.d6) + 3});
-                            }
-                            break;
-                        case 12:
-                            if(parseInt(values.d12)>0){
-                                setAttrs({d12: parseInt(values.d12) - 1});
-                                setAttrs({d8: parseInt(values.d8) + 3});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Split4", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 10:
-                            if(parseInt(values.d10)>0){
-                                setAttrs({d10: parseInt(values.d10) - 1});
-                                setAttrs({d4: parseInt(values.d4) + 4});
-                            }
-                            break;
-                        case 12:
-                            if(parseInt(values.d12)>0){
-                                setAttrs({d12: parseInt(values.d12) - 1});
-                                setAttrs({d6: parseInt(values.d6) + 4});
-                            }
-                            break;
-                    }
-                });
-            });
-            on("clicked:Combine2", function(eventInfo) {
-                getAttrs(["dcharradio", "d4", "d6", "d8", "d10", "d12"], function(values) {
-                    switch(parseInt(values.dcharradio)){
-                        case 4:
-                            if(parseInt(values.d4)>1){
-                                setAttrs({d4: parseInt(values.d4) - 2});
-                                setAttrs({d6: parseInt(values.d6) + 1});
-                            }
-                            break;
-                                
-                        case 6:
-                            if(parseInt(values.d6)>1){
-                                setAttrs({d6: parseInt(values.d6) - 2});
-                                setAttrs({d8: parseInt(values.d8) + 1});
-                            }
-                            break;
-                        case 8:
-                            if(parseInt(values.d8)>1){
-                                setAttrs({d8: parseInt(values.d8) - 2});
-                                setAttrs({d10: parseInt(values.d10) + 1});
-                            }
-                            break;
-                        case 10:
-                            if(parseInt(values.d10)>1){
-                                setAttrs({d10: parseInt(values.d10) - 2});
-                                setAttrs({d12: parseInt(values.d12) + 1});
-                            }
-                            break;
-                    }
-                });
             });
         </script>
     </body>
