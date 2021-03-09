@@ -638,7 +638,7 @@
 
                 <div class='sheet-prime-core'>
                  	<table style="width: 100%">
-                 	    <td style="vertical-align: top;border: 1px outset black; background-color: lightgreen; height: 100%;width: 35%;">
+                 	    <td style="vertical-align: top;border: 1px outset black; background-color: lightgreen; height: 100%;width: 40%;">
                     		<div>	
                             	<h3>Affiliations</h3>
                                 <div>
@@ -4803,7 +4803,6 @@
             const afflist = ["UseSolo","UseBuddy","UseTeam"];
             afflist.forEach(aff => {
                 on(`clicked:${aff}`, function() {
-//                    console.log("trigger: "+aff);
                     getAttrs(["d4", "d6", "d8", "d10", "d12", "Solo", "Buddy", "Team", aff.slice(3)], function(values) {
                         console.log("In getAttrs");
                         if(values[aff.slice(3)][1]==="d"){
@@ -4867,6 +4866,155 @@
                     });
                 });
             });
+
+            const btnlist = [   "Solo1d4",
+                                "Solo2d4",
+                                "Solo3d4",
+                                "Solo4d4",
+                                "Solo5d4",
+                                "Solo1d6",
+                                "Solo2d6",
+                                "Solo3d6",
+                                "Solo4d6",
+                                "Solo5d6",
+                                "Solo1d8",
+                                "Solo2d8",
+                                "Solo3d8",
+                                "Solo4d8",
+                                "Solo5d8",
+                                "Solo1d10",
+                                "Solo2d10",
+                                "Solo3d10",
+                                "Solo4d10",
+                                "Solo5d10",
+                                "Solo1d12",
+                                "Solo2d12",
+                                "Solo3d12",
+                                "Solo4d12",
+                                "Solo5d12",
+                                "Buddy1d4",
+                                "Buddy2d4",
+                                "Buddy3d4",
+                                "Buddy4d4",
+                                "Buddy5d4",
+                                "Buddy1d6",
+                                "Buddy2d6",
+                                "Buddy3d6",
+                                "Buddy4d6",
+                                "Buddy5d6",
+                                "Buddy1d8",
+                                "Buddy2d8",
+                                "Buddy3d8",
+                                "Buddy4d8",
+                                "Buddy5d8",
+                                "Buddy1d10",
+                                "Buddy2d10",
+                                "Buddy3d10",
+                                "Buddy4d10",
+                                "Buddy5d10",
+                                "Buddy1d12",
+                                "Buddy2d12",
+                                "Buddy3d12",
+                                "Buddy4d12",
+                                "Buddy5d12",
+                                "Team1d4",
+                                "Team2d4",
+                                "Team3d4",
+                                "Team4d4",
+                                "Team5d4",
+                                "Team1d6",
+                                "Team2d6",
+                                "Team3d6",
+                                "Team4d6",
+                                "Team5d6",
+                                "Team1d8",
+                                "Team2d8",
+                                "Team3d8",
+                                "Team4d8",
+                                "Team5d8",
+                                "Team1d10",
+                                "Team2d10",
+                                "Team3d10",
+                                "Team4d10",
+                                "Team5d10",
+                                "Team1d12",
+                                "Team2d12",
+                                "Team3d12",
+                                "Team4d12",
+                                "Team5d12"
+                            ];
+            btnlist.forEach(btn => {
+                on(`clicked:${btn}`, function(eventinfo) {
+                    console.log("In getAttrs");
+                    getAttrs(["d4", "d6", "d8", "d10", "d12"], function(values) {
+                        console.log("In getAttrs");
+                        if(eventinfo.triggerName.slice(9,12)==="udd"){
+                            M = 13;
+                        } else {
+                            M = 12;
+                        }
+                        if(eventinfo.triggerName.slice(M)[1]==="d"){
+                            const N = parseInt(eventinfo.triggerName.slice(M)[0])
+                            switch(eventinfo.triggerName.slice(M+1)){
+                                case "d4":
+                                    setAttrs({
+                                        ["d4"]: parseInt(values["d4"]) + N
+                                    });
+                                    break;
+                                case "d6":
+                                    setAttrs({
+                                        ["d6"]: parseInt(values["d6"]) + N
+                                    });
+                                    break;
+                                case "d8":
+                                    setAttrs({
+                                        ["d8"]: parseInt(values["d8"]) + N
+                                    });
+                                    break;
+                                case "d10":
+                                    setAttrs({
+                                        ["d10"]: parseInt(values["d10"]) + N
+                                    });
+                                    break;
+                                case "d12":
+                                    setAttrs({
+                                        ["d12"]: parseInt(values["d12"]) + N
+                                    });
+                                    break;
+                            }
+                        } else {
+                            switch(eventinfo.triggerName.slice(M)){
+                                case "d4":
+                                    setAttrs({
+                                        ["d4"]: parseInt(values["d4"]) + 1
+                                    });
+                                    break;
+                                case "d6":
+                                    setAttrs({
+                                        ["d6"]: parseInt(values["d6"]) + 1
+                                    });
+                                    break;
+                                case "d8":
+                                    setAttrs({
+                                        ["d8"]: parseInt(values["d8"]) + 1
+                                    });
+                                    break;
+                                case "d10":
+                                    setAttrs({
+                                        ["d10"]: parseInt(values["d10"]) + 1
+                                    });
+                                    break;
+                                case "d12":
+                                    setAttrs({
+                                        ["d12"]: parseInt(values["d12"]) + 1
+                                    });
+                                    break;
+                            }
+                        }
+                    }); 
+                });
+            });
+
             const aff2list = ["Solo","Buddy","Team"];
             aff2list.forEach(aff => {
                 on(`change:${aff}`, function() {
