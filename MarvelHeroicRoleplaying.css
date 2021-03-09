@@ -51,7 +51,8 @@ textarea {
 }
 
 hr.myhrline {
- margin: 1px;
+ margin-top: 0em;
+ margin-bottom: 0em;
 }
 
 table {
@@ -66,19 +67,31 @@ div {
 input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
 input.sheet-toggle-hide:checked ~ div.sheet-body {
     display: none;
-    margin: 1px;
+    width: 0px;
+    height: 0px;
+    margin: 0px;
 }
 
 /*Configure the tab buttons*/
-.sheet-character,
+.sheet-build,
 .sheet-dice-only, 
+.sheet-play, 
 .sheet-npc {
 	display: none;
 }
 
 /* show the selected tab */
-.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="build"] ~ div.sheet-build,
 .sheet-tabstoggle[value="dice-only"] ~ div.sheet-dice-only,
+.sheet-tabstoggle[value="play"] ~ div.sheet-play,
 .sheet-tabstoggle[value="npc"] ~ div.sheet-npc {
 	display: block;
+}
+
+input.sheet-repcontrol-toggle:not(:checked) ~ .repcontrol {
+    display: none;
+}
+
+input.sheet-repcontrol-toggle:checked ~ .repcontrol {
+    display: none;
 }
