@@ -25,6 +25,14 @@ input[type=text].sheet-input-text-wide {
  vertical-align: middle;
 }
 
+textarea { 
+ height: 34px;
+ width: 100%;
+ margin: 1px;
+ resize: vertical;
+ vertical-align: middle;
+}
+
 select {
  width: 75px;
  margin: 1px;
@@ -35,21 +43,6 @@ select.sheet-select-wide {
  margin: 1px;
 }
 
-label {
- text-align: right;
- width: 75px;
- margin: 1px;
- display:inline-block;
-}
-
-textarea { 
- height: 34px;
- width: 100%;
- margin: 1px;
- resize: vertical;
- vertical-align: middle;
-}
-
 hr.myhrline {
  margin-top: 0em;
  margin-bottom: 0em;
@@ -57,11 +50,6 @@ hr.myhrline {
 
 table {
  margin: 1px;
-}
-
-div {
- margin: 1px;
- width: 100%;
 }
 
 input.sheet-toggle-show:not(:checked) ~ div.sheet-body,
