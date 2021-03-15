@@ -33,6 +33,41 @@
                 			<td style="text-align:center">
                 				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
                 					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
+
+<!DOCTYPE html>
+<!-- ********************************************************************************************************************* -->
+<!-- Start of Sheet-->
+<!-- Note:  The dice bar can be added to the top of any character sheet to provide the dice pool rolling functionality.-->
+<html>
+    <body>
+        
+        <div>
+<!--            <button style="background-color: green;color: white;" type="action" name="act_play" >Play</button>
+            &nbsp;&nbsp; -->
+            <button style="background-color: blue;color: white;" type="action" name="act_build" >Build/Design</button>
+            &nbsp;&nbsp;
+            <button style="background-color: darkblue;color: white;" type="action" name="act_classic" >Classic</button>
+            &nbsp;&nbsp;
+            <button style="background-color: white;" type="action" name="act_dice-only" >Dice Pool Roller Only</button>
+            &nbsp;&nbsp;
+            <button type="action" name="act_npc" >NPC</button>
+        </div>
+
+        <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='build'  />
+
+        <div class='sheet-dice-bar'>
+         	<div class="sheet-2colrow">
+        		<div class="sheet-col">	
+                	<table style="display: inline-block;">
+                		<tr>
+                			<td style="text-align:center">
+                				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
+                				</button>
+                			</td>
+                			<td style="text-align:center">
+                				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
+                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
                 				</button>
                 			</td>
                 			<td style="text-align:center">
@@ -5393,7 +5428,7 @@
                     		<div class="sheet-col" style="border: 1px outset black;  background-color: lightgreen;">	
                             	<h3>Affiliations</h3>
                                 <div>
-                                	<label for="attr_Solo">Solo:</label>
+                                	<label style="text-align: right;display:inline-block;width: 75px;" for="attr_Solo">Solo:</label>
                             		<input type="number" name="attr_Solo" />
                             		<select name="attr_SoloDie" placeholder="d4">
                             			<option value="d4">d4</option>
@@ -5409,7 +5444,7 @@
                             		</button>
                                 </div>
                                 <div>
-                                	<label for="attr_Buddy">Buddy:</label>
+                                	<label style="text-align: right;display:inline-block;width: 75px;" for="attr_Buddy">Buddy:</label>
                             		<input type="number" name="attr_Buddy" />
                                 	<select name="attr_BuddyDie" placeholder="d8">
                                 		<option value="d4">d4</option>
@@ -5425,7 +5460,7 @@
                                 	</button>
                                 </div>
                                 <div>
-                                	<label for="attr_Team">Team:</label>
+                                	<label style="text-align: right;display:inline-block;width: 75px;" for="attr_Team">Team:</label>
                             		<input type="number" name="attr_Team" />
                                 	<select name="attr_TeamDie" placeholder="d10">
                                 		<option value="d4">d4</option>
@@ -5442,35 +5477,35 @@
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <div class="sheet-col" style="border: 1px outset black;  background-color: lightyellow;">	
+                        <td style="vertical-align: top;border: 1px outset black; background-color: lightyellow; height: 100%;">
+                            <div>	
                             <h3>Distinctions</h3>
                             <div>
-                            	<input style="width: 65%" type="text" name="attr_Dist1" />
-                            	<button name="attr_Dist1_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<input style="width: 65%;font-size: 110%;" type="text" name="attr_Dist1" />
+                            	<button name="act_Dist1d8"  type="action" style="font-size:0;height:28px;">
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist1_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist1d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
                             </div>
                             <div>
-                            	<input style="width: 65%" type="text" name="attr_Dist2" />
-                            	<button name="attr_Dist2_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<input style="width: 65%;font-size: 110%;" type="text" name="attr_Dist2" />
+                            	<button name="act_Dist2d8"  type="action" >
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist2_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist2d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
                             </div>
                             <div>
-                            	<input style="width: 65%" type="text" name="attr_Dist3" />
-                            	<button name="attr_Dist3_d8"  type="roll" value="!setattr --silent --name @{character_name} --mod --d8|1" style="font-size:0;height:28px;">
+                            	<input style="width: 65%;font-size: 110%;" type="text" name="attr_Dist3" />
+                            	<button name="act_Dist3d8"  type="action" >
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d8Y.png?raw=true" width="28" height="28"/>
                             	</button>
-                            	<button style="font-size:0;height:28px;"  name="attr_Dist3_d4"  type="roll" value="!setattr --silent --name @{character_name} --mod --d4|1">	
+                            	<button style="font-size:0;height:28px;"  name="act_Dist3d4"  type="action" >	
                             		<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="28" height="28"/>	
                             	</button>
                             	<span>+1 PP</span>
@@ -5483,39 +5518,56 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
                         <div class="sheet-body" >  
-                         	<div class="sheet-2colrow">
-                        		<div class="sheet-col">	
-                                	<h3>Power Set 1</h3>
-                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet1"/>
-                                	<br />	
-                                	<h4>Powers</h4>
-                                    <div>
-                                    	<fieldset class="repeating_powers1"> 
-                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS1Power" />
-                                    		<select style="width: 60px" name="attr_PS1PowerDie" placeholder="d4">
-                                    			<option value="d4">d4</option>
-                                    			<option value="d6">d6</option>
-                                    			<option value="d8">d8</option>
-                                    			<option value="d10">d10</option>
-                                    			<option value="d12">d12</option>
-                                    		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS1PowerDie}|1" >
-                                    			ADD
-                                    		</button>
-                                            <br />
-                                    	</fieldset> 
-                                    </div>
+                    		<div>	
+                            	<h3>Power Set 1</h3>
+                                <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet1"/>
+                            	<br />	
+                            	<h4>Powers</h4>
+                                
+                                <div>
+                                	<fieldset class="repeating_powers1"> 
+                                		<input style="text-align:right;width: 65%" type="text" name="attr_PS1Power" />
+                                		<select style="width: 65px" name="attr_PS1PowerDie" placeholder="d4">
+                                			<option value="d4">d4</option>
+                                			<option value="d6">d6</option>
+                                			<option value="d8">d8</option>
+                                			<option value="d10">d10</option>
+                                			<option value="d12">d12</option>
+                                			<option value="Shutdown">OFF</option>
+                                			<option value="2d4">2d4</option>
+                                			<option value="2d6">2d6</option>
+                                			<option value="2d8">2d8</option>
+                                			<option value="2d10">2d10</option>
+                                			<option value="2d12">2d12</option>
+                                			<option value="3d4">3d4</option>
+                                			<option value="3d6">3d6</option>
+                                			<option value="3d8">3d8</option>
+                                			<option value="3d10">3d10</option>
+                                			<option value="3d12">3d12</option>
+                                			<option value="4d4">4d4</option>
+                                			<option value="4d6">4d6</option>
+                                			<option value="4d8">4d8</option>
+                                			<option value="4d10">4d10</option>
+                                			<option value="4d12">4d12</option>
+                                			<option value="5d4">5d4</option>
+                                			<option value="5d6">5d6</option>
+                                			<option value="5d8">5d8</option>
+                                			<option value="5d10">5d10</option>
+                                			<option value="5d12">5d12</option>
+                                		</select>
+                        				<button name="act_UsePS1Power" type="action" >
+                                        USE
+                                        </button>
+                                        <br />
+                                	</fieldset> 
                                 </div>
-                        
-                        		<div class="sheet-col">	
-                                	<h4>SFX and Limits</h4>
-                                    <div>
-                                    	<fieldset class="repeating_SFX1"> 
-                                    	    <textarea style="width: 95%" name="attr_PS1SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
-                                    	</fieldset>
-                                    </div>
+                            </div>
+                    		<div>	
+                            	<h4>SFX and Limits</h4>
+                                <div>
+                                	<fieldset class="repeating_SFX1"> 
+                                	    <textarea style="width: 95%;height: auto;" name="attr_PS1SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                	</fieldset>
                                 </div>
                             </div>
                         </div>
@@ -5525,38 +5577,55 @@
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
             
                         <div class="sheet-body" >  
-                         	<div class="sheet-2colrow">
-                        		<div class="sheet-col">	
-                                	<h3>Power Set 2</h3>
-                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet2"/>
-                                	<br />	
-                                	<h4>Powers</h4>
-                                    <div>
-                                    	<fieldset class="repeating_powers2"> 
-                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS2Power" />
-                                    		<select style="width: 60px" name="attr_PS2PowerDie" placeholder="d4">
-                                    			<option value="d4">d4</option>
-                                    			<option value="d6">d6</option>
-                                    			<option value="d8">d8</option>
-                                    			<option value="d10">d10</option>
-                                    			<option value="d12">d12</option>
-                                    		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS2PowerDie}|1" >
-                                    			ADD
-                                    		</button>
-                                    	</fieldset> 
-                                    </div>
+                    		<div>	
+                            	<h3>Power Set 2</h3>
+                                <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet2"/>
+                            	<br />	
+                            	<h4>Powers</h4>
+                    
+                                <div>
+                                	<fieldset class="repeating_powers2"> 
+                                		<input style="text-align:right;width: 65%" type="text" name="attr_PS2Power" />
+                                		<select style="width: 65px" name="attr_PS2PowerDie" placeholder="d4">
+                                			<option value="d4">d4</option>
+                                			<option value="d6">d6</option>
+                                			<option value="d8">d8</option>
+                                			<option value="d10">d10</option>
+                                			<option value="d12">d12</option>
+                                			<option value="Shutdown">OFF</option>
+                                			<option value="2d4">2d4</option>
+                                			<option value="2d6">2d6</option>
+                                			<option value="2d8">2d8</option>
+                                			<option value="2d10">2d10</option>
+                                			<option value="2d12">2d12</option>
+                                			<option value="3d4">3d4</option>
+                                			<option value="3d6">3d6</option>
+                                			<option value="3d8">3d8</option>
+                                			<option value="3d10">3d10</option>
+                                			<option value="3d12">3d12</option>
+                                			<option value="4d4">4d4</option>
+                                			<option value="4d6">4d6</option>
+                                			<option value="4d8">4d8</option>
+                                			<option value="4d10">4d10</option>
+                                			<option value="4d12">4d12</option>
+                                			<option value="5d4">5d4</option>
+                                			<option value="5d6">5d6</option>
+                                			<option value="5d8">5d8</option>
+                                			<option value="5d10">5d10</option>
+                                			<option value="5d12">5d12</option>
+                                		</select>
+                        				<button name="act_UsePS2Power" type="action" >
+                                        USE
+                                        </button>
+                                	</fieldset> 
                                 </div>
-                        
-                        		<div class="sheet-col">	
-                                	<h4>SFX and Limits</h4>
-                                    <div>
-                                    	<fieldset style="width: 100%" class="repeating_SFX2"> 
-                                    	    <textarea style="width: 95%" name="attr_PS2SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
-                                    	</fieldset>
-                                    </div>
+                            </div>
+                    		<div>	
+                            	<h4>SFX and Limits</h4>
+                                <div>
+                                	<fieldset style="width: 100%" class="repeating_SFX2"> 
+                                	    <textarea style="width: 95%;height: auto;" name="attr_PS2SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                	</fieldset>
                                 </div>
                             </div>
                         </div>
@@ -5566,37 +5635,55 @@
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
         
                         <div class="sheet-body" >  
-                         	<div class="sheet-2colrow">
-                        		<div class="sheet-col">	
-                                	<h3>Power Set 3</h3>
-                                    <input style="text-align:center;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet3"/>
-                                	<br />	
-                                	<h4>Powers</h4>
-                                    <div>
-                                    	<fieldset class="repeating_powers3"> 
-                                    		<input style="text-align:right;width: 65%" type="text" name="attr_PS3Power" />
-                                    		<select style="width: 60px" name="attr_PS3PowerDie" placeholder="d4">
-                                    			<option value="d4">d4</option>
-                                    			<option value="d6">d6</option>
-                                    			<option value="d8">d8</option>
-                                    			<option value="d10">d10</option>
-                                    			<option value="d12">d12</option>
-                                    		</select>
-                                    		<button	type="roll" 
-                                    			class="blank-roll-button" 
-                                    			value="!setattr --silent --name @{character_name} --mod --@{PS3PowerDie}|1" >
-                                    			ADD
-                                    		</button>
-                                    	</fieldset> 
-                                    </div>
+                    		<div>	
+                            	<h3>Power Set 3</h3>
+                                <input style="text-align:center;font-weight: bold;font-variant: small-caps;height: 32px;width: 100%;margin: 1px;display:inline-block;vertical-align: middle;" type="text" name="attr_PowerSet3"/>
+                            	<br />	
+                            	<h4>Powers</h4>
+                    
+                                <div>
+                                	<fieldset class="repeating_powers3"> 
+                                		<input style="text-align:right;width: 65%" type="text" name="attr_PS3Power" />
+                                		<select style="width: 65px" name="attr_PS3PowerDie" placeholder="d4">
+                                			<option value="d4">d4</option>
+                                			<option value="d6">d6</option>
+                                			<option value="d8">d8</option>
+                                			<option value="d10">d10</option>
+                                			<option value="d12">d12</option>
+                                			<option value="Shutdown">OFF</option>
+                                			<option value="2d4">2d4</option>
+                                			<option value="2d6">2d6</option>
+                                			<option value="2d8">2d8</option>
+                                			<option value="2d10">2d10</option>
+                                			<option value="2d12">2d12</option>
+                                			<option value="3d4">3d4</option>
+                                			<option value="3d6">3d6</option>
+                                			<option value="3d8">3d8</option>
+                                			<option value="3d10">3d10</option>
+                                			<option value="3d12">3d12</option>
+                                			<option value="4d4">4d4</option>
+                                			<option value="4d6">4d6</option>
+                                			<option value="4d8">4d8</option>
+                                			<option value="4d10">4d10</option>
+                                			<option value="4d12">4d12</option>
+                                			<option value="5d4">5d4</option>
+                                			<option value="5d6">5d6</option>
+                                			<option value="5d8">5d8</option>
+                                			<option value="5d10">5d10</option>
+                                			<option value="5d12">5d12</option>
+                                		</select>
+                        				<button name="act_UsePS3Power" type="action" >
+                                        USE
+                                        </button>
+                                	</fieldset> 
                                 </div>
-                        		<div class="sheet-col">	
-                                	<h4>SFX and Limits</h4>
-                                    <div>
-                                    	<fieldset style="width: 100%" class="repeating_SFX3"> 
-                                    	    <textarea style="width: 95%" name="attr_PS3SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
-                                    	</fieldset>
-                                    </div>
+                            </div>
+                    		<div>	
+                            	<h4>SFX and Limits</h4>
+                                <div>
+                                	<fieldset style="width: 100%" class="repeating_SFX3"> 
+                                	    <textarea style="width: 95%;height: auto;" name="attr_PS3SFX" placeholder="SFX: Effect. blah blah blah OR Limit: Limitation. blah blah blah" ></textarea>
+                                	</fieldset>
                                 </div>
                             </div>
                         </div>
@@ -5606,47 +5693,69 @@
                         <h3>Specialties</h3>
                     	<div class="sheet-2colrow">
                     		<div class="sheet-col">	
-                                <div>
-                                	<fieldset class="repeating_specialty1"> 
-                            			<input type="text" name="attr_Specialty1" style="text-align:right"/>
-                                		<select name="attr_Specialty1_Die" placeholder="d4">
-                                			<option value="d4">d4</option>
-                                			<option value="d6">d6</option>
-                                			<option value="d8">d8</option>
-                                			<option value="d10">d10</option>
-                                			<option value="d12">d12</option>
-                                		</select>
-                                		<button	type="roll" 
-                                			class="blank-roll-button" 
-                                			value="!setattr --silent --name @{character_name} --mod --@{Specialty1_Die}|1" >
-                                			ADD
-                                		</button>
-                                	</fieldset> 
-                                </div>
+                                <fieldset class="repeating_specialty1"> 
+                                    <input type="text" name="attr_Specialty1" style="text-align:right"/>
+                                    <select name="attr_Specialty1Die" placeholder="d4">
+                                        <option value="d12">d12</option>
+                            			<option value="2d10">2d10</option>
+                            			<option value="3d8">3d8</option>
+                            			<option value="4d6">4d6</option>
+                                        <option value="d10">d10</option>
+                            			<option value="2d8">2d8</option>
+                            			<option value="3d6">3d6</option>
+                            			<option value="4d4">4d4</option>
+                                        <option value="d8">d8</option>
+                            			<option value="2d6">2d6</option>
+                            			<option value="3d4">3d4</option>
+                                        <option value="d6">d6</option>
+                            			<option value="2d4">2d4</option>
+                                        <option value="d4">d4</option>
+                            			<option value="Shutdown">OFF</option>
+                            			<option value="2d12">2d12</option>
+                            			<option value="3d10">3d10</option>
+                            			<option value="3d12">3d12</option>
+                            			<option value="4d8">4d8</option>
+                            			<option value="4d10">4d10</option>
+                            			<option value="4d12">4d12</option>
+                            			<option value="5d4">5d4</option>
+                            			<option value="5d6">5d6</option>
+                            			<option value="5d8">5d8</option>
+                            			<option value="5d10">5d10</option>
+                            			<option value="5d12">5d12</option>
+                                    </select>
+                    				<button name="act_UseSpecialty1" type="action" >
+                                    USE
+                                    </button>
+                                </fieldset> 
                             </div>
             
                     		<div class="sheet-col">	
-                                <div>
-                                	<fieldset class="repeating_specialty2"> 
-                                		<input type="text" name="attr_Specialty2" style="text-align:right"/>
-                                		<select name="attr_Specialty2_Die" placeholder="d4">
-                                			<option value="d4">d4</option>
-                                			<option value="d6">d6</option>
-                                			<option value="d8">d8</option>
-                                			<option value="d10">d10</option>
-                                			<option value="d12">d12</option>
-                                		</select>
-                                		<button	type="roll" 
-                                			class="blank-roll-button" 
-                                			value="!setattr --silent --name @{character_name} --mod --@{Specialty2_Die}|1" >
-                                			ADD
-                                		</button>
-                                	</fieldset> 
-                                </div>
+                                <fieldset class="repeating_specialty2"> 
+                                    <input type="text" name="attr_Specialty2" style="text-align:right"/>
+                                    <select name="attr_Specialty2Die" placeholder="d4">
+                                        <option value="d12">d12</option>
+                            			<option value="2d10">2d10</option>
+                            			<option value="3d8">3d8</option>
+                            			<option value="4d6">4d6</option>
+                                        <option value="d10">d10</option>
+                            			<option value="2d8">2d8</option>
+                            			<option value="3d6">3d6</option>
+                            			<option value="4d4">4d4</option>
+                                        <option value="d8">d8</option>
+                            			<option value="2d6">2d6</option>
+                            			<option value="3d4">3d4</option>
+                                        <option value="d6">d6</option>
+                            			<option value="2d4">2d4</option>
+                                        <option value="d4">d4</option>
+                            			<option value="Shutdown">OFF</option>
+                                    </select>
+                    				<button name="act_UseSpecialty2" type="action" >
+                                    USE
+                                    </button>
+                                </fieldset> 
                     		</div>
                     	</div>
                 	</div>
-                </div>
             </span>
         </div>
         
