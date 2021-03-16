@@ -122,10 +122,9 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
   display: grid;
   width: 100%;
   grid-template-areas:
-	'. . . . . . .'
 	'dist delt delt delt ddie ddie ddie'
 	'. delt delt delt ddie ddie ddie';
-  grid-template-rows: 1px 24px 34px;
+  grid-template-rows: 24px 34px;
   grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
   grid-gap: 0%;
   background-color: white;
@@ -136,10 +135,9 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
   display: grid;
   width: 100%;
   grid-template-areas:
-	'. . . . . . .'
 	'pset psnm psnm psnm psnm psnm psnm'
 	'. pspw pspw pspw pspw pspw pspw';
-  grid-template-rows: repeat(auto) minmax(1px);
+  grid-template-rows: repeat(auto) minmax(3px);
   grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
   grid-gap: 0%;
   background-color: white;
@@ -150,10 +148,9 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
   display: grid;
   width: 100%;
   grid-template-areas:
-	'. . . . . . .'
 	'spec selt selt selt sdie sdie sdie'
 	'. selt selt selt sdie sdie sdie';
-  grid-template-rows: repeat(auto) minmax(1px);
+  grid-template-rows: repeat(auto) minmax(3px);
   grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
   grid-gap: 0%;
   background-color: white;
@@ -164,10 +161,9 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
   display: grid;
   width: 100%;
   grid-template-areas:
-	'. . . . . . .'
 	'mile m1nm m1nm m1nm m1nm m1nm m1nm'
 	'. m1el m1el m1el m1el m1el m1el';
-  grid-template-rows: repeat(auto) minmax(1px);
+  grid-template-rows: repeat(auto) minmax(3px);
   grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
   grid-gap: 0%;
   background-color: white;
