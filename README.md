@@ -23,7 +23,7 @@ There is an `XP` counter on the upper right to use for tracking experience gaine
 
 The controls on the right are for dice pool manipulation according to the Cortex System rules. The radio buttons in the top row are selected first, then the appropriate action button is clicked.
 
-NOTE: These dice pool functions check to confirm that you have the right dice already in your pool to take these actions. If you lak the appropriate dice for the action to complete, or you try to take an action against a die type that it is not definde for, the button will do nothing.
+NOTE: These dice pool functions check to confirm that you have the right dice already in your pool to take these actions. If you lack the appropriate dice for the action to complete, or you try to take an action against a die type that it is not defined for, the button will do nothing.
 The buttons are
 
 `2X` - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
