@@ -16,13 +16,17 @@ To add dice to the pool, click the roller wheel below the picture of a die to in
 
 Once you've selected how many of each type of die you want in your pool, press the ROLL button. Your dice will be rolled in the Roll20 Chat window.
 
-There is also a CLEAR button to clear your old pool, or clear the pool if you need to start fresh. The CLEAR button has a pop up "Are you sure" window to avoid inadvertently erasing a nice large dice pool you have just lovingly created.
+There is also a CLEAR button to clear your old pool, or clear the pool if you need to start fresh. The CLEAR button has pop up Confirm and Cancel buttons to help avoid inadvertently erasing a nice large dice pool you have just lovingly created.
+
+XP Counter
+
+There is an XP counter on the upper right to use for tracking experience gained during play.
 
 The Dice Pool Actions
 
 The controls on the right are for dice pool manipulation according to the Cortex System rules. The radio buttons in the top row are selected first, then the appropriate action button is clicked.
 
-NOTE: These dice pool functions do not check to confirm that you have the right dice already in your pool to take these actions. As such, it is up to you to make sure you don't click an action button when there are not enough dice of the selected size in the pool to complete that action. Doing so can produce "spurious" results.
+NOTE: These dice pool functions check to confirm that you have the right dice already in your pool to take these actions. If you lak the appropriate dice for the action to complete, or you try to take an action against a die type that it is not definde for, the button will do nothing.
 The buttons are
 
 2X - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
@@ -47,22 +51,23 @@ Also, in the event that you just want to use ROLL20 and this dice pool roller an
 
 The Character Sheet
 
-The MHRP Character Sheet allows the player to step through their character details, selecting dice that are relevant to their current action, then roll their dice pool.
+The MHRP Character Sheet has four "pages": Build/Create, Classic, Dice Pool Only, and NPC
+
+The Build/Create page allows the player to both build their character and also to play from this sheet.
+
 When you create the character, you enter all the Distinctions, Powers, SFX, Limits, Specialties, Milestones for your character, and set all of the die sizes for your Affiliations, Powers, and Specialties.
 
-To build a dice pool, clicking the "ADD" button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a d8 and d4 picture button to select which you want to add to your pool.
+To build a dice pool, clicking the "USE" button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a d8 and d4 picture button to select which you want to add to your pool.
 
 Once you've selected all of your dice, you can manually edit your dice pool to implement any SFX or Limits (stepping up or down, doubling dice, etc.), or to add any external Complication, Stress, Scene Distinction, Asset, Resource, Push, or Stunt dice.
 
 At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Power Sets and the Milestones. This is to simplify the appearance for characters that only have 1 or 2 Power Sets. Often, when running one-shot games we do not use Milestones, so I made them hide-able as well to give people more options when managing limited screen space in Roll20.
 
-For Powers, SFX and Limits, and Specialties, only the first row exists on a new blank character sheet. The "+Add" button allows you to add new rows of powers, etc. depending on how many the character needs. The "Modify" button will allow you to delete unneeded rows, or to reorder existing rows (except for the first).
+For Powers, SFX and Limits, and Specialties, use the "+Add" button to add new powers, etc. depending on how many the character needs. The "Modify" button will allow you to delete unneeded rows, or to reorder existing rows.
 
-Do not confuse the "+Add" button for adding rows with the "ADD" button for adding a trait's die to your dice pool.
+I have not integrated temporary traits (Stress, Complications, Stunts, etc.) into the sheet. We are using Roll20 card decks to implement these. See "Plot Points and Temporary Trait Dice" below for more details.
 
-I have not integrated Plot Points, nor temporary traits (Stress, Complications, Stunts, etc.) into the sheet. We are using Roll20 card decks to implement these. See the "Plot Points and Temporary Trait Dice" handout for more details.
-
-In addition to the character sheet and the dice roller only sheet, there is an NPC sheet button. This uses all the same conventions, but I have added a multiplier entry in front of the Affiliation dice. This allows for NPC mob or LST dice. For example, the Copy of Nebula's Mercs (NPC MOB) is a 4d8 mob, which you can see in their Solo affiliation if you select the NPC Sheet button at the top when viewing them.
+The NPC page works the same as the Build/Create page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the NPC page is included so NPC characters built previously do not require conversion to use. Edits to the NPC page will modify the Build/Create page entries, and should not be used if the Build/Create or Classic pages are to be used in play.
 
 Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
 
