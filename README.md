@@ -6,7 +6,7 @@ Buttons on the sheet add dice to your pool, or you can add them in the roller it
 The d20 button in the roller rolls your dice into the chat.
 The sheet requires the ChatSetAttr API script to function properly.
 
-The Dice Pool
+## The Dice Pool
 
 The controls on the left are the dice pool itself and the buttons to manually add, remove, roll, and clear dice.
 
@@ -18,38 +18,36 @@ Once you've selected how many of each type of die you want in your pool, press t
 
 There is also a CLEAR button to clear your old pool, or clear the pool if you need to start fresh. The CLEAR button has pop up Confirm and Cancel buttons to help avoid inadvertently erasing a nice large dice pool you have just lovingly created.
 
-XP Counter
+## XP Counter
 
 There is an XP counter on the upper right to use for tracking experience gained during play.
 
-The Dice Pool Actions
+## The Dice Pool Actions
 
 The controls on the right are for dice pool manipulation according to the Cortex System rules. The radio buttons in the top row are selected first, then the appropriate action button is clicked.
 
 NOTE: These dice pool functions check to confirm that you have the right dice already in your pool to take these actions. If you lak the appropriate dice for the action to complete, or you try to take an action against a die type that it is not definde for, the button will do nothing.
 The buttons are
 
-2X - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
+'2X' - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
 
-UP - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping up a d12 results in a d12 being replaced with a d12 and a d6.
+'UP' - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping up a d12 results in a d12 being replaced with a d12 and a d6.
 
-DN - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
+'DN' - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
 
-/2 - Split a Die into Two Smaller Dice. This function removes a die and replaces it with 2 dice one step down. Using this on a d4 just removes it from the pool.
+'/2' - Split a Die into Two Smaller Dice. This function removes a die and replaces it with 2 dice one step down. Using this on a d4 just removes it from the pool.
 
-/3 - Split a Die into Three Smaller Dice. This function removes a die and replaces it with 3 dice two steps down. Using this on a d4 or d6 just removes it from the pool.
+'/3' - Split a Die into Three Smaller Dice. This function removes a die and replaces it with 3 dice two steps down. Using this on a d4 or d6 just removes it from the pool.
 
-/4 - Split a Die into Four Smaller Dice. This function removes a die and replaces it with 4 dice three steps down. Using this on a d4, d6, or d8 just removes it from the pool.
+'/4' - Split a Die into Four Smaller Dice. This function removes a die and replaces it with 4 dice three steps down. Using this on a d4, d6, or d8 just removes it from the pool.
 
-2->1 - Combine Two Dice Into a Larger Die. This function removes 2 dice and replaces them with 1 die one step up. Using this on a pair of d12s just removes them from the pool. 
-
-
+'2->1' - Combine Two Dice Into a Larger Die. This function removes 2 dice and replaces them with 1 die one step up. Using this on a pair of d12s just removes them from the pool. 
 
 The character sheets themselves have additional interfaces to the dice pool roller that are explained in their handouts.
 
 Also, in the event that you just want to use ROLL20 and this dice pool roller and not the specific character sheets, there is a Dice Pool Roller Only button available for just that scenario. I use a Dice Pool Roller Only as a "character sheet" for my Doom Pool.
 
-The Character Sheet
+# The Character Sheet
 
 The MHRP Character Sheet has four "pages": Build/Create, Classic, Dice Pool Only, and NPC
 
@@ -69,7 +67,7 @@ I have not integrated temporary traits (Stress, Complications, Stunts, etc.) int
 
 The NPC page works the same as the Build/Create page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the NPC page is included so NPC characters built previously do not require conversion to use. Edits to the NPC page will modify the Build/Create page entries, and should not be used if the Build/Create or Classic pages are to be used in play.
 
-Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
+# Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
 
 In my games, we don't use the character sheets to manage plot points and temporary traits like stress. We do these with the Roll20 card decks. We use 2 decks.
 
