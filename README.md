@@ -17,7 +17,7 @@ There is also a `CLEAR` button to clear your old pool, or clear the pool if you 
 
 ## XP Counter
 
-There is an XP counter on the upper right to use for tracking experience gained during play.
+There is an `XP` counter on the upper right to use for tracking experience gained during play.
 
 ## The Dice Pool Actions
 
