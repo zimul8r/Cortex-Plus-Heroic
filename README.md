@@ -44,23 +44,33 @@ The character sheets themselves have additional interfaces to the dice pool roll
 
 Also, in the event that you just want to use ROLL20 and this dice pool roller and not the specific character sheets, there is a `Dice Pool Only` button available for just that scenario. I use a `Dice Pool Only` page as a "character sheet" for my Doom Pool.
 
-# The Character Sheet
+# The Character Sheets
 
-The MHRP Character Sheet has four "pages": `Build/Create`, `Classic`, `Dice Pool Only`, and `NPC`
+The MHRP Character Sheet has four "pages": `Build/Create`, `Classic`, `Dice Pool Only`, and `NPC`.
 
-The Build/Create page allows the player to both build their character and also to play from this sheet.
+##The `Build/Create` Page
 
-When you create the character, you enter all the Distinctions, Powers, SFX, Limits, Specialties, Milestones for your character, and set all of the die sizes for your Affiliations, Powers, and Specialties.
+The `Build/Create` page allows the player to both build their character and also to play from this sheet.
 
-To build a dice pool, clicking the `USE` button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a `d8` and `d4` button to select which you want to add to your pool.
-
-Once you've selected all of your dice, you can manually edit your dice pool to implement any SFX or Limits (stepping up or down, doubling dice, etc.), or to add any external Complication, Stress, Scene Distinction, Asset, Resource, Push, or Stunt dice.
-
-At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Power Sets and the Milestones. This is to simplify the appearance for characters that only have 1 or 2 Power Sets. Often, when running one-shot games we do not use Milestones, so I made them hide-able as well to give people more options when managing limited screen space in Roll20.
+When you create the character, you enter all the Distinctions, Powers, SFX, Limits, Specialties, Milestones for your character, and set all of the die sizes for your Affiliations, Powers, and Specialties. You can have up to 5 dice (of the same type) in a trait. This is to accomodate MOBs, Large Scale Threats (LSTs), and PCs with mob-like or other multi-die powers.
 
 For Powers, SFX and Limits, and Specialties, use the `+Add` button to add new powers, etc. depending on how many the character needs. The `Modify` button will allow you to delete unneeded rows, or to reorder existing rows.
 
 I have not integrated temporary traits (Stress, Complications, Stunts, etc.) into the sheet. We are using Roll20 card decks to implement these. See **Plot Points and Temporary Trait Dice** below for more details.
+
+When using this page for play, clicking the `USE` button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a `d8` and `d4` button to select which you want to add to your pool.
+
+Once you've selected all of your dice, you can edit your dice pool to implement any SFX or Limits (stepping up or down, doubling dice, etc.) either manually or using the Dice Pool Options tool, and then manually add any external Complication, Stress, Scene Distinction, Asset, Resource, Push, or Stunt dice.
+
+At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Power Sets and the Milestones. This is to simplify the appearance for characters that only have 1 or 2 Power Sets. Often, when running one-shot games we do not use Milestones, so I made them hide-able as well to give people more options when managing limited screen space in Roll20.
+
+**Note:** These check boxes will also hide the Power Sets and Milestones on the `Classic` page.
+
+## The `Classic` Page
+
+The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks.
+
+##The `NPC` Page
 
 The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Edits to the `NPC` page will modify the `Build/Create` page entries, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
 
