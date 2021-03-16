@@ -68,7 +68,11 @@ At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Powe
 
 ## The `Classic` Page
 
-The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks.
+The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks. This page is designed for play, whiel edits are made form the `Build/Create` page.
+
+## The `Dice Pool Only` Page
+
+The `Dice Pool Only` page has no associated character sheet, just the dice controls at the top. It is low profile from a screen usage perspective, and can be used for other dice pool driven games that do not have existing Roll20 character sheets yet. This page can also be used as the Doom Pool for MHR games, which requires an independent dice pool and dice management but no character sheet.
 
 ## The `NPC` Page
 
