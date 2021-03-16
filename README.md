@@ -48,7 +48,7 @@ Also, in the event that you just want to use ROLL20 and this dice pool roller an
 
 The MHRP Character Sheet has four "pages": `Build/Create`, `Classic`, `Dice Pool Only`, and `NPC`.
 
-##The `Build/Create` Page
+## The `Build/Create` Page
 
 The `Build/Create` page allows the player to both build their character and also to play from this sheet.
 
@@ -70,7 +70,7 @@ At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Powe
 
 The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks.
 
-##The `NPC` Page
+## The `NPC` Page
 
 The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Edits to the `NPC` page will modify the `Build/Create` page entries, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
 
