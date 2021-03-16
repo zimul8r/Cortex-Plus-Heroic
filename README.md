@@ -14,9 +14,9 @@ To roll any single die, click on the picture of that die. That die will be rolle
 
 To add dice to the pool, click the roller wheel below the picture of a die to increase to counter below the chosen die type.
 
-Once you've selected how many of each type of die you want in your pool, press the ROLL button. Your dice will be rolled in the Roll20 Chat window.
+Once you've selected how many of each type of die you want in your pool, press the `ROLL` button. Your dice will be rolled in the Roll20 Chat window.
 
-There is also a CLEAR button to clear your old pool, or clear the pool if you need to start fresh. The CLEAR button has pop up Confirm and Cancel buttons to help avoid inadvertently erasing a nice large dice pool you have just lovingly created.
+There is also a `CLEAR` button to clear your old pool, or clear the pool if you need to start fresh. The `CLEAR` button has pop up `Confirm` and `Cancel` buttons to help avoid inadvertently erasing a nice large dice pool you have just lovingly created.
 
 ## XP Counter
 
@@ -29,43 +29,43 @@ The controls on the right are for dice pool manipulation according to the Cortex
 NOTE: These dice pool functions check to confirm that you have the right dice already in your pool to take these actions. If you lak the appropriate dice for the action to complete, or you try to take an action against a die type that it is not definde for, the button will do nothing.
 The buttons are
 
-'2X' - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
+`2X` - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
 
-'UP' - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping up a d12 results in a d12 being replaced with a d12 and a d6.
+`UP` - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping up a d12 results in a d12 being replaced with a d12 and a d6.
 
-'DN' - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
+`DN` - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
 
-'/2' - Split a Die into Two Smaller Dice. This function removes a die and replaces it with 2 dice one step down. Using this on a d4 just removes it from the pool.
+`/2` - Split a Die into Two Smaller Dice. This function removes a die and replaces it with 2 dice one step down. Using this on a d4 just removes it from the pool.
 
-'/3' - Split a Die into Three Smaller Dice. This function removes a die and replaces it with 3 dice two steps down. Using this on a d4 or d6 just removes it from the pool.
+`/3` - Split a Die into Three Smaller Dice. This function removes a die and replaces it with 3 dice two steps down. Using this on a d4 or d6 just removes it from the pool.
 
-'/4' - Split a Die into Four Smaller Dice. This function removes a die and replaces it with 4 dice three steps down. Using this on a d4, d6, or d8 just removes it from the pool.
+`/4` - Split a Die into Four Smaller Dice. This function removes a die and replaces it with 4 dice three steps down. Using this on a d4, d6, or d8 just removes it from the pool.
 
-'2->1' - Combine Two Dice Into a Larger Die. This function removes 2 dice and replaces them with 1 die one step up. Using this on a pair of d12s just removes them from the pool. 
+`2->1` - Combine Two Dice Into a Larger Die. This function removes 2 dice and replaces them with 1 die one step up. Using this on a pair of d12s just removes them from the pool. 
 
 The character sheets themselves have additional interfaces to the dice pool roller that are explained in their handouts.
 
-Also, in the event that you just want to use ROLL20 and this dice pool roller and not the specific character sheets, there is a Dice Pool Roller Only button available for just that scenario. I use a Dice Pool Roller Only as a "character sheet" for my Doom Pool.
+Also, in the event that you just want to use ROLL20 and this dice pool roller and not the specific character sheets, there is a `Dice Pool Only` button available for just that scenario. I use a `Dice Pool Only` page as a "character sheet" for my Doom Pool.
 
 # The Character Sheet
 
-The MHRP Character Sheet has four "pages": Build/Create, Classic, Dice Pool Only, and NPC
+The MHRP Character Sheet has four "pages": `Build/Create`, `Classic`, `Dice Pool Only`, and `NPC`
 
 The Build/Create page allows the player to both build their character and also to play from this sheet.
 
 When you create the character, you enter all the Distinctions, Powers, SFX, Limits, Specialties, Milestones for your character, and set all of the die sizes for your Affiliations, Powers, and Specialties.
 
-To build a dice pool, clicking the "USE" button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a d8 and d4 picture button to select which you want to add to your pool.
+To build a dice pool, clicking the `USE` button adds a trait die to the dice pool roller above the sheet. The only exception is the Distinctions. Since they can be taken as either a d8 or a d4 (to earn a PP), they have a `d8` and `d4` button to select which you want to add to your pool.
 
 Once you've selected all of your dice, you can manually edit your dice pool to implement any SFX or Limits (stepping up or down, doubling dice, etc.), or to add any external Complication, Stress, Scene Distinction, Asset, Resource, Push, or Stunt dice.
 
 At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Power Sets and the Milestones. This is to simplify the appearance for characters that only have 1 or 2 Power Sets. Often, when running one-shot games we do not use Milestones, so I made them hide-able as well to give people more options when managing limited screen space in Roll20.
 
-For Powers, SFX and Limits, and Specialties, use the "+Add" button to add new powers, etc. depending on how many the character needs. The "Modify" button will allow you to delete unneeded rows, or to reorder existing rows.
+For Powers, SFX and Limits, and Specialties, use the `+Add` button to add new powers, etc. depending on how many the character needs. The `Modify` button will allow you to delete unneeded rows, or to reorder existing rows.
 
-I have not integrated temporary traits (Stress, Complications, Stunts, etc.) into the sheet. We are using Roll20 card decks to implement these. See "Plot Points and Temporary Trait Dice" below for more details.
+I have not integrated temporary traits (Stress, Complications, Stunts, etc.) into the sheet. We are using Roll20 card decks to implement these. See **Plot Points and Temporary Trait Dice** below for more details.
 
-The NPC page works the same as the Build/Create page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the NPC page is included so NPC characters built previously do not require conversion to use. Edits to the NPC page will modify the Build/Create page entries, and should not be used if the Build/Create or Classic pages are to be used in play.
+The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Edits to the `NPC` page will modify the `Build/Create` page entries, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
 
 # Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
 
