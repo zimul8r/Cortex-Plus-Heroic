@@ -1,12 +1,9 @@
 # Marvel Heroic Roleplaying
 Character sheet(s) for Marvel Heroic Roleplaying. To see an example of how it all works, check out the Roll20 game at: https://app.roll20.net/join/9344152/nM9tKQ
 
-The dice pool controls are at the top of the character sheets. They are inspired in part by the DiceStream app that was once available in Google Hangouts. 
-Buttons on the sheet add dice to your pool, or you can add them in the roller itself.
-The d20 button in the roller rolls your dice into the chat.
-The sheet requires the ChatSetAttr API script to function properly.
-
 ## The Dice Pool
+
+The dice pool controls are at the top of the character sheets. They are inspired in part by the DiceStream app that was once available in Google Hangouts. 
 
 The controls on the left are the dice pool itself and the buttons to manually add, remove, roll, and clear dice.
 
