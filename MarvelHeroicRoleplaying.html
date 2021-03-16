@@ -5,8 +5,7 @@
 <!-- Note:  The dice bar can be added to the top of any character sheet to provide the dice pool rolling functionality.-->
 <html>
     <body>
-        
-        <div>
+        <div style="width: 60%;display: inline-block;">
 <!--            <button style="background-color: green;color: white;" type="action" name="act_play" >Play</button>
             &nbsp;&nbsp; -->
             <button style="background-color: blue;color: white;" type="action" name="act_build" >Build/Design</button>
@@ -17,46 +16,15 @@
             &nbsp;&nbsp;
             <button type="action" name="act_npc" >NPC</button>
         </div>
-
-        <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='build'  />
-
-        <div class='sheet-dice-bar'>
-         	<div class="sheet-2colrow">
-        		<div class="sheet-col">	
-                	<table style="display: inline-block;">
-                		<tr>
-                			<td style="text-align:center">
-                				<button style="font-size:0;height:30px;"  name="roll_d4"  type="roll" value="/roll d4">	
-                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4R.png?raw=true" width="30" height="30"/>	
-                				</button>
-                			</td>
-                			<td style="text-align:center">
-                				<button name="roll_d6"  type="roll" value="/roll d6" style="font-size:0;height:30px;">
-                					<img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d6O.png?raw=true" width="30" height="30"/>
-
-<!DOCTYPE html>
-<!-- ********************************************************************************************************************* -->
-<!-- Start of Sheet-->
-<!-- Note:  The dice bar can be added to the top of any character sheet to provide the dice pool rolling functionality.-->
-<html>
-    <body>
-        
-        <div>
-<!--            <button style="background-color: green;color: white;" type="action" name="act_play" >Play</button>
-            &nbsp;&nbsp; -->
-            <button style="background-color: blue;color: white;" type="action" name="act_build" >Build/Design</button>
-            &nbsp;&nbsp;
-            <button style="background-color: darkblue;color: white;" type="action" name="act_classic" >Classic</button>
-            &nbsp;&nbsp;
-            <button style="background-color: white;" type="action" name="act_dice-only" >Dice Pool Roller Only</button>
-            &nbsp;&nbsp;
-            <button type="action" name="act_npc" >NPC</button>
+        <div style="text-align: right;display: inline-block;">
+    		<label style="display: inline-block;width: 40px">XP:</label> 
+    		<input style="display: inline-block;" type="number" name="attr_XP" min="0"/>
         </div>
 
-        <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='build'  />
+        <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='classic'  />
 
         <div class='sheet-dice-bar'>
-         	<div class="sheet-2colrow">
+         	<div class="sheet-2colrow" style="width: 85%;display: inline-block;">
         		<div class="sheet-col">	
                 	<table style="display: inline-block;">
                 		<tr>
@@ -114,24 +82,24 @@
                 				<button	type="action" 
                 				    title="Clear the dice pool"
                 				    name="act_Clear"
-                					style="width:40px;height:18px;line-height: 18px;text-align: center;padding:1px;font-size:13px;">
+                					style="display: inline-block;width:40px;height:18px;line-height: 18px;text-align: center;padding:1px;font-size:13px;">
                 				Clear
                 				</button>
-                            </td>
-                            <td>
+                			</td>
+                			<td>
                                 <input hidden type="checkbox" class="sheet-toggle-show" name="attr_confirmCheck"  />
                                 <span hidden style="font-size:15px;"  vertical-align="middle">Confirm Button</span>
                                 <div class="sheet-body" >  
-                    				<button name="act_Confirm" type="action" style="background-color: lightgreen;" >
+                    				<button name="act_Confirm" type="action" style="display: inline-block;background-color: lightgreen;" >
                                     Confirm
                                     </button>
                                 </div>
                 			</td>
-                            <td>
+                			<td>
                                 <input hidden type="checkbox" class="sheet-toggle-show" name="attr_confirmCheck"  />
                                 <span hidden style="font-size:15px;"  vertical-align="middle">Confirm Button</span>
                                 <div class="sheet-body" >  
-                    				<button class='sheet-body' name="act_Abort" type="action" style="background-color: red;color: white;" >
+                    				<button class='sheet-body' name="act_Abort" type="action" style="display: inline-block;background-color: red;color: white;" >
                                     Abort
                                     </button>
                                 </div>
@@ -203,20 +171,20 @@
                 				2->1
                 				</button>
                             </div>
-                        </tr>                        
+                        </tr>
                     </table>
         	    </div>
     	    </div>
         </div><!-- Dice Bar close --> 
         <hr style="margin: 0px 0px 0px 0px;"/>
 
-        <div class='sheet-classic' style:"background-color: lightblue">
-            <input type="text" name="attr_character_name" style="padding: 0px 4px 0px 0px;width: 100%;text-align: right;font-family: 'arial black'; font-size: 2em;font-style: bold;background-color: rgb(0,38,80);border: none;color: white;text-transform: uppercase;" value="CHARACTER"/>
+        <div class='sheet-classic'  style="background-image: url('https://github.com/zimul8r/MHRP/blob/main/MHR_Background.png?raw=true'); background-position: right top; background-repeat: no-repeat; background-size: 90%;background-color: white">
+            <input type="text" name="attr_character_name" style="padding: 0px 4px 0px 0px;width: 100%;text-align: right;margin-right: 50px;font-family: 'arial black'; font-size: 2em;font-style: bold;background-color: rgb(0,40,80);border: none;color: white;text-transform: uppercase;" value="CHARACTER"/>
             <span>
                 <div class='sheet-prime-core'>
-                    <div class="grid-affiliation">
+                    <div class="grid-affiliation" style="background-color: transparent;">
                         <div class="trait-item1" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Affiliations</div>
-                        <div class="trait-item2" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item2" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                             <label style="color: white;vertical-align:bottom;text-align: left;text-indent: 1em;display: inline-block;" for="attr_Solo">Solo:</label>
                             <span style="display: inline-block;position: absolute;top: 0px;left: 5em;"> 
                                 <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Solo1d4"  style="margin: 0px;" /> 
@@ -469,7 +437,7 @@
                                 </div>
                             </span>
                         </div>
-                        <div class="trait-item3" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item3" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                             <label style="color: white;vertical-align:bottom;text-align: left;display: inline-block;" for="attr_Solo">Buddy:</label>
                         	<select hidden name="attr_Buddy"  placeholder="d8">
                         		<option value="d4">d4</option>
@@ -751,7 +719,7 @@
                             </span>
                         </td>
                         </div>  
-                        <div class="trait-item4" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item4" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                         	<label style="color: white;vertical-align:bottom;text-align: left;display: inline-block;" for="attr_Solo">Team:</label>
                         	<select hidden name="attr_Team"  placeholder="d10">
                         		<option value="d4">d4</option>
@@ -1033,14 +1001,14 @@
                             </span>
                         </div>
                     </div>
-                    <div class="grid-distinction">
+                    <div class="grid-distinction" style="background-color: transparent;">
                         <div class="trait-item5" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Distinctions</div>
-                        <div class="trait-item6" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item6" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                         	<input style="width: 100%; background-color: transparent;border-style: none;padding: 0px;font-size: 1.2em;text-indent: 1em;color: white;" type="text" name="attr_Dist1" />
                         	<input style="width: 100%; background-color: transparent;border-style: none;padding: 0px;font-size: 1.2em;text-indent: 1em;color: white;" type="text" name="attr_Dist2" />
                         	<input style="width: 100%; background-color: transparent;border-style: none;padding: 0px;font-size: 1.2em;text-indent: 1em;color: white;" type="text" name="attr_Dist3" />
                         </div>
-                        <div class="trait-item7" style="background-color: rgb(0,38,80);vertical-align: middle;">
+                        <div class="trait-item7" style="background-color: rgba(0,38,80,0.7);vertical-align: middle;margin-bottom: 4px;">
                             <div style="height: 100%;width: auto;display: inline-block;float: left;">
                             	<button style="font-size:0;height:28px;padding-top: 0px;padding-bottom: 0px; background-color: transparent;border-style: none;"  name="act_Dist1d4"  type="action" >	
                 				    <img src="https://github.com/zimul8r/Cortex-Prime-Heroic/blob/main/d4Y.png?raw=true" width="30" height="30"/>	
@@ -1060,12 +1028,12 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power1_Check" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 1</span>
                         <div class="sheet-body" style="height: auto;">
-                            <div class="grid-powerset" style="height: auto;">
+                            <div class="grid-powerset" style="height: auto;background-color: transparent;">
                                 <div class="trait-item8" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Power Set 1</div>
-                                <div class="trait-item9" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;">
+                                <div class="trait-item9" style="color: white;background-color: rgb(0,54,99);font-size: 1.1em;">
                                     <input style="width: 100%;text-align:left;text-indent: 1em;font-weight: bold;font-variant: small-caps;font-size: 16px;vertical-align: middle;color: white;background-color: rgb(0,54,99);border-style: none;" type="text" name="attr_PowerSet1"/>
                                 </div>
-                                <div class="trait-item10" style="background-color: rgb(0,38,80);position: relative;">
+                                <div class="trait-item10" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                                     <div>
                                         <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                                     	<fieldset class="repeating_powers1"> 
@@ -1344,12 +1312,12 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power2_Check" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 2</span>
                         <div class="sheet-body">
-                            <div class="grid-powerset">
+                            <div class="grid-powerset" style="height: auto;background-color: transparent;">
                                 <div class="trait-item8" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Power Set 2</div>
-                                <div class="trait-item9" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;">
+                                <div class="trait-item9" style="color: white;background-color: rgb(0,54,99);font-size: 1.1em;">
                                     <input style="width: 100%;text-align:left;text-indent: 1em;font-weight: bold;font-variant: small-caps;font-size: 16px;vertical-align: middle;color: white;background-color: rgb(0,54,99);border-style: none;" type="text" name="attr_PowerSet2"/>
                                 </div>
-                                <div class="trait-item10" style="background-color: rgb(0,38,80);position: relative;">
+                                <div class="trait-item10" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                                     <div>
                                         <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                                     	<fieldset class="repeating_powers2"> 
@@ -1628,12 +1596,12 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Power3_Check" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Power Set 3</span>
                         <div class="sheet-body">
-                            <div class="grid-powerset">
+                            <div class="grid-powerset" style="height: auto;background-color: transparent;">
                                 <div class="trait-item8" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Power Set 3</div>
-                                <div class="trait-item9" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;">
+                                <div class="trait-item9" style="color: white;background-color: rgb(0,54,99);font-size: 1.1em;">
                                     <input style="width: 100%;text-align:left;text-indent: 1em;font-weight: bold;font-variant: small-caps;font-size: 16px;vertical-align: middle;color: white;background-color: rgb(0,54,99);border-style: none;" type="text" name="attr_PowerSet3"/>
                                 </div>
-                                <div class="trait-item10" style="background-color: rgb(0,38,80);position: relative;">
+                                <div class="trait-item10" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                                     <div>
                                         <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                                     	<fieldset class="repeating_powers3"> 
@@ -1908,9 +1876,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-specialty">
+                    <div class="grid-specialty" style="background-color: transparent;">
                         <div class="trait-item11" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Specialties</div>
-                        <div class="trait-item12" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item12" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                             <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                             <fieldset class="repeating_specialty1"> 
                                 <input type="text" name="attr_Specialty1" style="display: inline-block;text-align:right;width: 50%;height: 30px;float: left;font-size: 110%;background-color: transparent;color: white;border-style: none;"/>
@@ -2174,7 +2142,7 @@
                                 </span>
                             </fieldset> 
                         </div>
-                        <div class="trait-item13" style="background-color: rgb(0,38,80);position: relative">
+                        <div class="trait-item13" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                             <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                             <fieldset class="repeating_specialty2"> 
                             <input type="text" name="attr_Specialty2" style="display: inline-block;text-align:right;width: 50%;height: 30px;float: left;font-size: 110%;background-color: transparent;color: white;border-style: none;"/>
@@ -2460,12 +2428,12 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Milestones" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Milestone</span>
                         <div class="sheet-body" style="height: auto;">
-                            <div class="grid-milestone" style="height: auto;">
+                            <div class="grid-milestone" style="height: auto;background-color: transparent;">
                                 <div class="trait-item14" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Milestone</div>
-                                <div class="trait-item15" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;">
+                                <div class="trait-item15" style="color: white;background-color: rgb(30,90,140);font-size: 16px;">
                                     <input style="width: 100%;text-align:left;text-indent: 1em;font-weight: bold;font-variant: small-caps;vertical-align: middle;color: white;background-color: rgb(0,54,99);border-style: none;" type="text" name="attr_Milestone1"/>
                                 </div>
-                                <div class="trait-item16" style="background-color: rgb(0,38,80);position: relative;">
+                                <div class="trait-item16" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                                     <div>
                                         <textarea style="resize: none;color: white;text-align: left;padding: 0 0 0 4em;text-indent: -3em;background-color: transparent;border: none;height: auto;width: 85%;" name="attr_Milestone1_1XP" placeholder="1 XP when..."></textarea>
                                     	<textarea style="resize: none;color: white;text-align: left;padding: 0 0 0 4em;text-indent: -3em;background-color: transparent;border: none;height: auto;width: 85%;" name="attr_Milestone1_3XP" placeholder="3 XP when..."></textarea>
@@ -2479,12 +2447,12 @@
                         <input hidden type="checkbox" class="sheet-toggle-show" name="attr_Milestones" />
                         <span hidden style="font-size:15px;"  vertical-align="middle">Milestone</span>
                         <div class="sheet-body">
-                            <div class="grid-milestone">
+                            <div class="grid-milestone" style="height: auto;background-color: transparent;">
                                 <div class="trait-item14" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Milestone</div>
-                                <div class="trait-item15" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;">
+                                <div class="trait-item15" style="color: white;background-color: rgb(30,90,140);font-size: 16px;">
                                     <input style="width: 100%;text-align:left;text-indent: 1em;font-weight: bold;font-variant: small-caps;vertical-align: middle;color: white;background-color: rgb(0,54,99);border-style: none;" type="text" name="attr_Milestone2" />
                                 </div>
-                                <div class="trait-item16" style="background-color: rgb(0,38,80);position: relative;">
+                                <div class="trait-item16" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
                                     <div>
                                     	<textarea style="resize: none;color: white;text-align: left;padding: 0 0 0 4em;text-indent: -3em;background-color: transparent;border: none;height: auto;width: 85%;" name="attr_Milestone2_1XP" placeholder="1 XP when..."></textarea>
                                     	<textarea style="resize: none;color: white;text-align: left;padding: 0 0 0 4em;text-indent: -3em;background-color: transparent;border: none;height: auto;width: 85%;" name="attr_Milestone2_3XP" placeholder="3 XP when..."></textarea>
@@ -5756,6 +5724,7 @@
                     		</div>
                     	</div>
                 	</div>
+                </div>
             </span>
         </div>
         
