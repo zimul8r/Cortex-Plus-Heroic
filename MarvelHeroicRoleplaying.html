@@ -24,7 +24,7 @@
         <input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='classic'  />
 
         <div class='sheet-dice-bar'>
-         	<div class="sheet-2colrow" style="width: 85%;display: inline-block;">
+         	<div class="sheet-2colrow" style="width: 100%;display: inline-block;">
         		<div class="sheet-col">	
                 	<table style="display: inline-block;">
                 		<tr>
@@ -1878,7 +1878,7 @@
                     </div>
                     <div class="grid-specialty" style="background-color: transparent;">
                         <div class="trait-item11" style="color: white;background-color: rgb(30,90,140);font-size: 1.1em;text-align: right;">Specialties</div>
-                        <div class="trait-item12" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
+                        <div class="trait-item12" style="background-color: rgba(0,38,80,0.7);position: relative;">
                             <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                             <fieldset class="repeating_specialty1"> 
                                 <input type="text" name="attr_Specialty1" style="display: inline-block;text-align:right;width: 50%;height: 30px;float: left;font-size: 110%;background-color: transparent;color: white;border-style: none;"/>
@@ -2142,7 +2142,7 @@
                                 </span>
                             </fieldset> 
                         </div>
-                        <div class="trait-item13" style="background-color: rgba(0,38,80,0.7);position: relative;margin-bottom: 4px;">
+                        <div class="trait-item13" style="background-color: rgba(0,38,80,0.7);position: relative;">
                             <input hidden class="sheet-repcontrol-toggle" type="checkbox" name="attr_toggle_repcontrol" value="off" checked="">
                             <fieldset class="repeating_specialty2"> 
                             <input type="text" name="attr_Specialty2" style="display: inline-block;text-align:right;width: 50%;height: 30px;float: left;font-size: 110%;background-color: transparent;color: white;border-style: none;"/>
@@ -2422,6 +2422,15 @@
                                 </div>
                             </span>
                         </fieldset> 
+                        </div>
+                        <div class="trait-item13a" style="background-color: rgba(0,38,80,0.9);position: relative;margin-bottom: 4px;">
+                            <span style="width: 100%;"> 
+                                <div style="width: 100%;margin: 0px;">  
+                    				<button style="width: 100%;border-width: 0px;padding: 0px;margin: 0px;text-align: center;color: white;background-color: transparent;" name="act_spcycle" type="action">
+                                        [CLICK HERE to convert Expert d8 to 2d6, Master d10 to 2d8 to 3d6, or Grandmaster d12 to 2d10 to 3d8 to 4d6]
+                                    </button>
+                                </div>
+                            </span>
                         </div>
                     </div>
                     <div display="flex">
@@ -6924,6 +6933,456 @@
                                 case "d12":
                                     setAttrs({
                                          [`repeating_specialty2_${rowid}_sp1d12`]: "on"
+                                    });
+                                    break;
+                                case "2d12":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp2d12`]: "on"
+                                    });
+                                    break;
+                                case "3d12":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp3d12`]: "on"
+                                    });
+                                    break;
+                                case "4d12":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp4d12`]: "on"
+                                    });
+                                    break;
+                                case "5d12":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp5d12`]: "on"
+                                    });
+                                    break;
+                                case "Shutdown":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_spshut`]: "on"
+                                    });
+                                    break;
+                            } 
+                        });
+                    });
+                });
+            });
+        </script>
+        <script type="text/worker">
+            // Cycle Specialties.
+            on('clicked:spcycle', function(eventInfo) {
+                console.log("Activate Debug");
+                // Cycle left Specialties.
+                console.log("Activate Debug");
+                getSectionIDs("specialty1", function (sp1ids) {
+                    sp1ids.forEach(rowid => {
+                        getAttrs([  `repeating_specialty1_${rowid}_sp1d4`,
+                                    `repeating_specialty1_${rowid}_sp2d4`,
+                                    `repeating_specialty1_${rowid}_sp3d4`,
+                                    `repeating_specialty1_${rowid}_sp4d4`,
+                                    `repeating_specialty1_${rowid}_sp5d4`,
+                                    `repeating_specialty1_${rowid}_sp1d6`,
+                                    `repeating_specialty1_${rowid}_sp2d6`,
+                                    `repeating_specialty1_${rowid}_sp3d6`,
+                                    `repeating_specialty1_${rowid}_sp4d6`,
+                                    `repeating_specialty1_${rowid}_sp5d6`,
+                                    `repeating_specialty1_${rowid}_sp1d8`,
+                                    `repeating_specialty1_${rowid}_sp2d8`,
+                                    `repeating_specialty1_${rowid}_sp3d8`,
+                                    `repeating_specialty1_${rowid}_sp4d8`,
+                                    `repeating_specialty1_${rowid}_sp5d8`,
+                                    `repeating_specialty1_${rowid}_sp1d10`,
+                                    `repeating_specialty1_${rowid}_sp2d10`,
+                                    `repeating_specialty1_${rowid}_sp3d10`,
+                                    `repeating_specialty1_${rowid}_sp4d10`,
+                                    `repeating_specialty1_${rowid}_sp5d10`,
+                                    `repeating_specialty1_${rowid}_sp1d12`,
+                                    `repeating_specialty1_${rowid}_sp2d12`,
+                                    `repeating_specialty1_${rowid}_sp3d12`,
+                                    `repeating_specialty1_${rowid}_sp4d12`,
+                                    `repeating_specialty1_${rowid}_sp5d12`,
+                                    `repeating_specialty1_${rowid}_spshut`,
+                                    `repeating_specialty1_${rowid}_Specialty1Die`], function(values) {
+                            console.log("In getAttrs");
+                            setAttrs({
+                                [`repeating_specialty1_${rowid}_sp1d4`]: "off",
+                                [`repeating_specialty1_${rowid}_sp2d4`]: "off",
+                                [`repeating_specialty1_${rowid}_sp3d4`]: "off",
+                                [`repeating_specialty1_${rowid}_sp4d4`]: "off",
+                                [`repeating_specialty1_${rowid}_sp5d4`]: "off",
+                                [`repeating_specialty1_${rowid}_sp1d6`]: "off",
+                                [`repeating_specialty1_${rowid}_sp2d6`]: "off",
+                                [`repeating_specialty1_${rowid}_sp3d6`]: "off",
+                                [`repeating_specialty1_${rowid}_sp4d6`]: "off",
+                                [`repeating_specialty1_${rowid}_sp5d6`]: "off",
+                                [`repeating_specialty1_${rowid}_sp1d8`]: "off",
+                                [`repeating_specialty1_${rowid}_sp2d8`]: "off",
+                                [`repeating_specialty1_${rowid}_sp3d8`]: "off",
+                                [`repeating_specialty1_${rowid}_sp4d8`]: "off",
+                                [`repeating_specialty1_${rowid}_sp5d8`]: "off",
+                                [`repeating_specialty1_${rowid}_sp1d10`]: "off",
+                                [`repeating_specialty1_${rowid}_sp2d10`]: "off",
+                                [`repeating_specialty1_${rowid}_sp3d10`]: "off",
+                                [`repeating_specialty1_${rowid}_sp4d10`]: "off",
+                                [`repeating_specialty1_${rowid}_sp5d10`]: "off",
+                                [`repeating_specialty1_${rowid}_sp1d12`]: "off",
+                                [`repeating_specialty1_${rowid}_sp2d12`]: "off",
+                                [`repeating_specialty1_${rowid}_sp3d12`]: "off",
+                                [`repeating_specialty1_${rowid}_sp4d12`]: "off",
+                                [`repeating_specialty1_${rowid}_sp5d12`]: "off",
+                                [`repeating_specialty1_${rowid}_spshut`]: "off",
+                            });
+                            switch(values[`repeating_specialty1_${rowid}_Specialty1Die`]){
+                                case "d4":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp1d4`]: "on"
+                                    });
+                                    break;
+                                case "2d4":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp2d4`]: "on"
+                                    });
+                                    break;
+                                case "3d4":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp3d4`]: "on"
+                                    });
+                                    break;
+                                case "4d4":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp4d4`]: "on"
+                                    });
+                                    break;
+                                case "5d4":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp5d4`]: "on"
+                                    });
+                                    break;
+                                case "d6":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp1d6`]: "on"
+                                    });
+                                    break;
+                                case "2d6":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp1d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "d8"
+                                    });
+                                    break;
+                                case "3d6":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp1d10`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "d10"
+                                    });
+                                    break;
+                                case "4d6":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp1d12`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "d12"
+                                    });
+                                    break;
+                                case "5d6":
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_sp5d6`]: "on"
+                                    });
+                                    break;
+                                case "d8":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp2d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "2d6"
+                                    });
+                                    break;
+                                case "2d8":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp3d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "3d6"
+                                    });
+                                    break;
+                                case "3d8":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp4d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "4d6"
+                                    });
+                                    break;
+                                case "4d8":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp4d8`]: "on"
+                                    });
+                                    break;
+                                case "5d8":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp5d8`]: "on"
+                                    });
+                                    break;
+                                case "d10":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp2d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "2d8"
+                                    });
+                                    break;
+                                case "2d10":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp3d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "3d8"
+                                    });
+                                    break;
+                                case "3d10":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp3d10`]: "on"
+                                    });
+                                    break;
+                                case "4d10":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp4d10`]: "on"
+                                    });
+                                    break;
+                                case "5d10":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp5d10`]: "on"
+                                    });
+                                    break;
+                                case "d12":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp2d10`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty1_${rowid}_Specialty1Die`]: "2d10"
+                                    });
+                                    break;
+                                case "2d12":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp2d12`]: "on"
+                                    });
+                                    break;
+                                case "3d12":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp3d12`]: "on"
+                                    });
+                                    break;
+                                case "4d12":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp4d12`]: "on"
+                                    });
+                                    break;
+                                case "5d12":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_sp5d12`]: "on"
+                                    });
+                                    break;
+                                case "Shutdown":
+                                    setAttrs({
+                                         [`repeating_specialty1_${rowid}_spshut`]: "on"
+                                    });
+                                    break;
+                            } 
+                        });
+                    });
+                });
+                // Cycle right Specialties.
+                console.log("Activate Debug");
+                getSectionIDs("specialty2", function (sp2ids) {
+                    sp2ids.forEach(rowid => {
+                        getAttrs([  `repeating_specialty2_${rowid}_sp1d4`,
+                                    `repeating_specialty2_${rowid}_sp2d4`,
+                                    `repeating_specialty2_${rowid}_sp3d4`,
+                                    `repeating_specialty2_${rowid}_sp4d4`,
+                                    `repeating_specialty2_${rowid}_sp5d4`,
+                                    `repeating_specialty2_${rowid}_sp1d6`,
+                                    `repeating_specialty2_${rowid}_sp2d6`,
+                                    `repeating_specialty2_${rowid}_sp3d6`,
+                                    `repeating_specialty2_${rowid}_sp4d6`,
+                                    `repeating_specialty2_${rowid}_sp5d6`,
+                                    `repeating_specialty2_${rowid}_sp1d8`,
+                                    `repeating_specialty2_${rowid}_sp2d8`,
+                                    `repeating_specialty2_${rowid}_sp3d8`,
+                                    `repeating_specialty2_${rowid}_sp4d8`,
+                                    `repeating_specialty2_${rowid}_sp5d8`,
+                                    `repeating_specialty2_${rowid}_sp1d10`,
+                                    `repeating_specialty2_${rowid}_sp2d10`,
+                                    `repeating_specialty2_${rowid}_sp3d10`,
+                                    `repeating_specialty2_${rowid}_sp4d10`,
+                                    `repeating_specialty2_${rowid}_sp5d10`,
+                                    `repeating_specialty2_${rowid}_sp1d12`,
+                                    `repeating_specialty2_${rowid}_sp2d12`,
+                                    `repeating_specialty2_${rowid}_sp3d12`,
+                                    `repeating_specialty2_${rowid}_sp4d12`,
+                                    `repeating_specialty2_${rowid}_sp5d12`,
+                                    `repeating_specialty2_${rowid}_spshut`,
+                                    `repeating_specialty2_${rowid}_Specialty2Die`], function(values) {
+                            console.log("In getAttrs");
+                            setAttrs({
+                                [`repeating_specialty2_${rowid}_sp1d4`]: "off",
+                                [`repeating_specialty2_${rowid}_sp2d4`]: "off",
+                                [`repeating_specialty2_${rowid}_sp3d4`]: "off",
+                                [`repeating_specialty2_${rowid}_sp4d4`]: "off",
+                                [`repeating_specialty2_${rowid}_sp5d4`]: "off",
+                                [`repeating_specialty2_${rowid}_sp1d6`]: "off",
+                                [`repeating_specialty2_${rowid}_sp2d6`]: "off",
+                                [`repeating_specialty2_${rowid}_sp3d6`]: "off",
+                                [`repeating_specialty2_${rowid}_sp4d6`]: "off",
+                                [`repeating_specialty2_${rowid}_sp5d6`]: "off",
+                                [`repeating_specialty2_${rowid}_sp1d8`]: "off",
+                                [`repeating_specialty2_${rowid}_sp2d8`]: "off",
+                                [`repeating_specialty2_${rowid}_sp3d8`]: "off",
+                                [`repeating_specialty2_${rowid}_sp4d8`]: "off",
+                                [`repeating_specialty2_${rowid}_sp5d8`]: "off",
+                                [`repeating_specialty2_${rowid}_sp1d10`]: "off",
+                                [`repeating_specialty2_${rowid}_sp2d10`]: "off",
+                                [`repeating_specialty2_${rowid}_sp3d10`]: "off",
+                                [`repeating_specialty2_${rowid}_sp4d10`]: "off",
+                                [`repeating_specialty2_${rowid}_sp5d10`]: "off",
+                                [`repeating_specialty2_${rowid}_sp1d12`]: "off",
+                                [`repeating_specialty2_${rowid}_sp2d12`]: "off",
+                                [`repeating_specialty2_${rowid}_sp3d12`]: "off",
+                                [`repeating_specialty2_${rowid}_sp4d12`]: "off",
+                                [`repeating_specialty2_${rowid}_sp5d12`]: "off",
+                                [`repeating_specialty2_${rowid}_spshut`]: "off",
+                            });
+                            switch(values[`repeating_specialty2_${rowid}_Specialty2Die`]){
+                                case "d4":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp1d4`]: "on"
+                                    });
+                                    break;
+                                case "2d4":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp2d4`]: "on"
+                                    });
+                                    break;
+                                case "3d4":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp3d4`]: "on"
+                                    });
+                                    break;
+                                case "4d4":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp4d4`]: "on"
+                                    });
+                                    break;
+                                case "5d4":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp5d4`]: "on"
+                                    });
+                                    break;
+                                case "d6":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp1d6`]: "on"
+                                    });
+                                    break;
+                                case "2d6":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp1d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "d8"
+                                    });
+                                    break;
+                                case "3d6":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp1d10`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "d10"
+                                    });
+                                    break;
+                                case "4d6":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp1d12`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "d12"
+                                    });
+                                    break;
+                                case "5d6":
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_sp5d6`]: "on"
+                                    });
+                                    break;
+                                case "d8":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp2d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "2d6"
+                                    });
+                                    break;
+                                case "2d8":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp3d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "3d6"
+                                    });
+                                    break;
+                                case "3d8":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp4d6`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "4d6"
+                                    });
+                                    break;
+                                case "4d8":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp4d8`]: "on"
+                                    });
+                                    break;
+                                case "5d8":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp5d8`]: "on"
+                                    });
+                                    break;
+                                case "d10":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp2d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "2d8"
+                                    });
+                                    break;
+                                case "2d10":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp3d8`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "3d8"
+                                    });
+                                    break;
+                                case "3d10":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp3d10`]: "on"
+                                    });
+                                    break;
+                                case "4d10":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp4d10`]: "on"
+                                    });
+                                    break;
+                                case "5d10":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp5d10`]: "on"
+                                    });
+                                    break;
+                                case "d12":
+                                    setAttrs({
+                                         [`repeating_specialty2_${rowid}_sp2d10`]: "on"
+                                    });
+                                    setAttrs({
+                                        [`repeating_specialty2_${rowid}_Specialty2Die`]: "2d10"
                                     });
                                     break;
                                 case "2d12":
