@@ -1,6 +1,8 @@
 # Marvel Heroic Roleplaying
 Character sheet(s) for Marvel Heroic Roleplaying. 
+
 To use this character sheet, be sure to disable Legacy Sanitation under Character Sheet Template in Settings.
+
 To see an example of how it all works, check out the Roll20 game at: https://app.roll20.net/join/9344152/nM9tKQ
 
 ## The Dice Pool
