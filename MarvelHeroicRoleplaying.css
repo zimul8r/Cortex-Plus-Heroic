@@ -99,6 +99,7 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
 .trait-item11 { grid-area: spec; }
 .trait-item12 { grid-area: selt; }
 .trait-item13 { grid-area: sdie; }
+.trait-item13a { grid-area: sbut; }
 .trait-item14 { grid-area: mile; }
 .trait-item15 { grid-area: m1nm; }
 .trait-item16 { grid-area: m1el; }
@@ -149,7 +150,8 @@ input.sheet-repcontrol-toggle:checked ~ .repcontrol {
   width: 100%;
   grid-template-areas:
 	'spec selt selt selt sdie sdie sdie'
-	'. selt selt selt sdie sdie sdie';
+	'. selt selt selt sdie sdie sdie'
+	'. sbut sbut sbut sbut sbut sbut';
   grid-template-rows: repeat(auto) minmax(3px);
   grid-template-columns: 10% 15% 15% 15% 15% 15% 15%;
   grid-gap: 0%;
