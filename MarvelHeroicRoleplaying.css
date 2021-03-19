@@ -1,3 +1,23 @@
+.sheet-d4 {
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d4Y.png?raw=true");
+}
+
+.sheet-d6 {
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d6Y.png?raw=true");
+}
+
+.sheet-d8 {
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d8Y.png?raw=true");
+}
+
+.sheet-d10 {
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d10Y.png?raw=true");
+}
+
+.sheet-d12 {
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d12Y.png?raw=true");
+}
+
 button[type=roll].sheet-blank-roll-button::before { 
  content: '';
  margin: 1px;
@@ -63,7 +83,6 @@ input.sheet-toggle-hide:checked ~ div.sheet-body {
 /*Configure the tab buttons*/
 .sheet-build,
 .sheet-dice-only, 
-.sheet-play, 
 .sheet-classic, 
 .sheet-npc {
 	display: none;
@@ -72,7 +91,6 @@ input.sheet-toggle-hide:checked ~ div.sheet-body {
 /* show the selected tab */
 .sheet-tabstoggle[value="build"] ~ div.sheet-build,
 .sheet-tabstoggle[value="dice-only"] ~ div.sheet-dice-only,
-.sheet-tabstoggle[value="play"] ~ div.sheet-play,
 .sheet-tabstoggle[value="classic"] ~ div.sheet-classic,
 .sheet-tabstoggle[value="npc"] ~ div.sheet-npc {
 	display: block;
