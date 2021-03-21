@@ -1,5 +1,5 @@
 # Marvel Heroic Roleplaying
-Character sheet(s) for Marvel Heroic Roleplaying. 
+Character sheet(s) for the Marvel Heroic Roleplaying Game. 
 
 To use this character sheet, be sure to disable Legacy Sanitation under Character Sheet Template in Settings.
 
