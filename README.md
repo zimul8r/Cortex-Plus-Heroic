@@ -32,7 +32,7 @@ The buttons are
 
 `2X` - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
 
-`UP` - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping up a d12 results in a d12 being replaced with a d12 and a d6.
+`UP` - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. According to the MHRP core rules, instead of stepping up a d12 in a pool, you should step up the next lowest die, or in the case of effect dice, either "take out" the target, or select a second unused die as another effect die. If you must step up a d12, this tool will replace the d12 with a d12 and a d6.
 
 `DN` - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
 
@@ -44,7 +44,7 @@ The buttons are
 
 `2->1` - Combine Two Dice Into a Larger Die. This function removes 2 dice and replaces them with 1 die one step up. Using this on a pair of d12s just removes them from the pool. 
 
-The character sheets themselves have additional interfaces to the dice pool roller that are explained in their handouts.
+The character sheets themselves have additional interfaces to the dice pool roller that are explained below.
 
 Also, in the event that you just want to use ROLL20 and this dice pool roller and not the specific character sheets, there is a `Dice Pool Roller Only` button available for just that scenario. I use a `Dice Pool Roller Only` page as a "character sheet" for my Doom Pool.
 
@@ -72,7 +72,7 @@ At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Powe
 
 ## The `Classic` Page
 
-The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks. This page is designed for play, whiel edits are made form the `Build/Create` page.
+The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks. This page is designed for play only, while edits are made from the `Build/Create` page.
 
 ## The `Dice Pool Roller Only` Page
 
@@ -80,13 +80,13 @@ The `Dice Pool Roller Only` page has no associated character sheet, just the dic
 
 ## The `NPC` Page
 
-The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Also, since the NPC page allows arbitrarily large numbers of Affiliation dice, it can still be used for NPCs with 6 or more dice in an Affiliation. Edits to the `NPC` page can modify the `Build/Create` page entries, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
+The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Also, since the NPC page allows arbitrarily large numbers of Affiliation dice, it can still be used for NPCs with 6 or more dice in an Affiliation. Edits to the `NPC` page can modify the `Build/Create` page entries for that character, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
 
 # Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
 
 In my games, we don't use the character sheets to manage plot points and temporary traits like stress. We do these with the Roll20 card decks. We use 2 decks.
 
-The first is our Plot Points deck.
+The first is our **Plot Points Deck**.
 
 The cards have the Avengers logo front and back and the deck is an infinite supply of them.
 
@@ -96,18 +96,20 @@ Above each player's avatar you will see a copy of the PP card image and the numb
 
 To spend a PP, click on the card image above your avatar to open the window, drag a PP card onto the virtual table top, then click the card image again to close the PP window.
 
-Because we used cards for this application, if the Watcher wants to retain control of when PP are taken, they can change the permissions on the deck to only allow the GM to deal cards, i.e. hand out PP.
+Because we used cards for this application, if the Watcher wants to retain control of when PP are taken, they can change the permissions on the deck to only allow the GM to deal cards, i.e. hand out PP. Also, using cards allows everyone to see how many PP each player has, which is harder to implement directly in the character sheets.
 
-The second is our dice deck.
+The second is our **Dice Deck**.
 
-This deck contains cards for all of the dice that represent temporary traits that come and go during a game session. The image files for these cards are in this file repository. 
+This deck contains cards for all of the dice that represent temporary traits that come and go during a game session. The image files for these cards are included in this file repository. 
 (We did not create Distinction cards for Scene Distinctions because we use a simple text box to convey those.)
 
 To add one to the game, hover over the deck and click "Choose". This opens a window of all the cards and allows the user to drag one onto the virtual tabletop.
 
-Unlike the PP cards, which are just images, these cards are implmeneted as tokens, so they can be given names and show those names on a nameplate.
+Unlike the PP cards, which are just images, these cards are implemented as tokens, so they can be given names and configured to show those names on a nameplate. 
 
 In our game, I have enabled the permission to allow players to pull those cards and to change their names so that they can name their assets, complications, etc.
+
+**Note:** Be sure to check the "Show Nameplate?" option under Token Defaults in your Game Default Settins in Roll20 so players can see the trait card names. 
 
 The cards are color coded by type and include some non-MHRP types (like Hero dice) for use in other Cortex Classic/Plus/Prime games.
 
