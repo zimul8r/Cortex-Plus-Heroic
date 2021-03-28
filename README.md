@@ -114,3 +114,6 @@ In our game, I have enabled the permission to allow players to pull those cards 
 The cards are color coded by type and include some non-MHRP types (like Hero dice) for use in other Cortex Classic/Plus/Prime games.
 
 A common problem we have experienced is forgetting to use stress, complications, etc. These cards are brightly colored to draw attention to themselves so players remember to use those dice in their pools. 
+
+### Attribution
+The hero couple background image is from https://commons.wikimedia.org/wiki/File:Placeholder_couple_superhero.png (Original works: Vegas Bleeds Neon, Derivative work: FRacco) in accordance with all rights and permissions described there, and was recolored to match the blue-scale background of the original MHR character files.
