@@ -1,5 +1,5 @@
 # Marvel Heroic Roleplaying
-Character sheet(s) for the Marvel Heroic Roleplaying Game. 
+These character sheet(s) for the Marvel Heroic Roleplaying Game include a fully articulated version that mimics the layout and style of the MHR Datasheets from the original rule books. 
 
 To use this character sheet, be sure to disable Legacy Sanitation under Character Sheet Template in Settings.
 
