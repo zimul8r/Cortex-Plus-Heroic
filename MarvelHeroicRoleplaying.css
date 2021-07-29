@@ -11,11 +11,11 @@
 }
 
 .sheet-d10 {
- content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d10Y.png?raw=true");
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/92731afff2b6bee5e517e9a678cda64b53b7b003/d10Y.png?raw=true");
 }
 
 .sheet-d12 {
- content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/dd390c1c174b82124f3a10afe177bccda7c97429/d12Y.png?raw=true");
+ content:url("https://github.com/zimul8r/Marvel-Heroic-Roleplaying-Game/blob/49a848e116f5aa18ba6a5d4246ae58cf76c6184f/d12Y.png?raw=true");
 }
 
 button[type=roll].sheet-blank-roll-button::before { 
