@@ -50,7 +50,7 @@ Also, in the event that you just want to use ROLL20 and this dice pool roller an
 
 # The Character Sheets
 
-The MHRP Character Sheet has four "pages": `Build/Create`, `Classic`, `Dice Pool Roller Only`, and `NPC`.
+The MHRP Character Sheet has four "pages": `Build/Create`, `Play`, `Dice Pool Roller Only`, and `NPC`.
 
 ## The `Build/Create` Page
 
@@ -68,11 +68,11 @@ Once you've selected all of your dice, you can edit your dice pool to implement 
 
 At the top of the sheet there are 4 check boxes. These hide or reveal the 3 Power Sets and the Milestones. This is to simplify the appearance for characters that only have 1 or 2 Power Sets. Often, when running one-shot games we do not use Milestones, so I made them hide-able as well to give people more options when managing limited screen space in Roll20.
 
-**Note:** These check boxes will also hide the Power Sets and Milestones on the `Classic` page.
+**Note:** These check boxes will also hide the Power Sets and Milestones on the `Play` page.
 
-## The `Classic` Page
+## The `Play` Page
 
-The `Classic` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks. This page is designed for play only, while edits are made from the `Build/Create` page.
+The `Play` page configures the character sheet to emulate the look and feel of the original hero datafiles from the MHR rulebooks. This page is designed for play only, while edits are made from the `Build/Create` page.
 
 ## The `Dice Pool Roller Only` Page
 
@@ -80,7 +80,7 @@ The `Dice Pool Roller Only` page has no associated character sheet, just the dic
 
 ## The `NPC` Page
 
-The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Also, since the NPC page allows arbitrarily large numbers of Affiliation dice, it can still be used for NPCs with 6 or more dice in an Affiliation. Edits to the `NPC` page can modify the `Build/Create` page entries for that character, and should not be used if the `Build/Create` or `Classic` pages are to be used in play.
+The `NPC` page works the same as the `Build/Create` page, and is a legacy function to support early adopters who have already built a bunch of NPCs with a previous version. Originally, I did not allow multiple dice in the traits, which are required for the Affiliations of Large Scale Threats and Mob NPCs. I had added a multiplier entry in front of the Affiliation dice to allow these. This is no longer necessary, since the standard sheet now allows up to 5 dice in a trait, but the `NPC` page is included so NPC characters built previously do not require conversion to use. Also, since the NPC page allows arbitrarily large numbers of Affiliation dice, it can still be used for NPCs with 6 or more dice in an Affiliation. Edits to the `NPC` page can modify the `Build/Create` page entries for that character, and should not be used if the `Build/Create` or `Play` pages are to be used in play.
 
 # Plot Points and Temporary Trait Dice (Stress, Complications, etc.)
 
