@@ -111,7 +111,7 @@ In our game, I have enabled the permission to allow players to pull those cards 
 
 **Note:** Be sure to check the "Show Nameplate?" option under Token Defaults in your Game Default Settins in Roll20 so players can see the trait card names. 
 
-The cards are color coded by type and include some non-MHRP types (like Hero dice) for use in other Cortex Classic/Plus/Prime games.
+The cards are color coded by type and include some non-MHR types (like Hero dice) for use in other Cortex Classic/Plus/Prime games.
 
 A common problem we have experienced is forgetting to use stress, complications, etc. These cards are brightly colored to draw attention to themselves so players remember to use those dice in their pools. 
 
