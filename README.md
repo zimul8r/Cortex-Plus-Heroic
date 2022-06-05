@@ -1,5 +1,5 @@
-# Marvel Heroic Roleplaying
-These character sheet(s) for the Marvel Heroic Roleplaying Game include a fully articulated version that mimics the layout and style of the MHR Datasheets from the original rule books. 
+# Cortex Plus Heroic Roleplaying
+These character sheet(s) for the Cortex Plus Heroic Roleplaying Game include a fully articulated version that mimics the layout and style of the Datasheets from the original Marvel rule books. 
 
 To use this character sheet, be sure to disable Legacy Sanitation under Character Sheet Template in Settings.
 
@@ -32,7 +32,7 @@ The buttons are
 
 `2X` - Doubles a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool.
 
-`UP` - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. According to the MHRP core rules, instead of stepping up a d12 in a pool, you should step up the next lowest die, or in the case of effect dice, either "take out" the target, or select a second unused die as another effect die. If you must step up a d12, this tool will replace the d12 with a d12 and a d6.
+`UP` - Steps Up a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. According to the Cortex Plus core rules, instead of stepping up a d12 in a pool, you should step up the next lowest die, or in the case of effect dice, either "take out" the target, or select a second unused die as another effect die. If you must step up a d12, this tool will replace the d12 with a d12 and a d6.
 
 `DN` - Steps Down a die of the selected size. This function should only be used when there is at least one of the selected dice in the pool. Stepping down a d4 removes it from the pool.
 
@@ -50,7 +50,7 @@ Also, in the event that you just want to use ROLL20 and this dice pool roller an
 
 # The Character Sheets
 
-The MHRP Character Sheet has four "pages": `Build/Create`, `Play`, `Dice Pool Roller Only`, and `NPC`.
+The Cortex Plus Heroic Character Sheet has four "pages": `Build/Create`, `Play`, `Dice Pool Roller Only`, and `NPC`.
 
 ## The `Build/Create` Page
 
